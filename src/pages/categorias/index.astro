@@ -1,0 +1,48 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/ui/Hero.astro';
+import Section from '../../components/ui/Section.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Grid from '../../components/ui/Grid.astro';
+import CategoryCard from '../../components/ui/CategoryCard.astro';
+
+import categories from '../../data/categories.json';
+import products from '../../data/products.json';
+
+const groups = [
+  { name: 'Especies menores', cats: categories.filter((c) => c.group === 'Especies menores') },
+  { name: 'Especies mayores', cats: categories.filter((c) => c.group === 'Especies mayores') },
+];
+---
+
+<MainLayout title="Categorías" description="Categorías de productos veterinarios Vetfarm organizados por especie: caninos, felinos y aves.">
+
+  <Hero
+    title="Categorías"
+    subtitle="Productos organizados por especie para que encuentres fácilmente lo que necesitas."
+    backgroundImage="https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1920&q=80&auto=format"
+    size="small"
+  />
+
+  {groups.map((group) => (
+    <Section background={group.name === 'Especies menores' ? 'white' : 'gray'}>
+      <SectionHeading
+        title={group.name}
+        subtitle={group.name === 'Especies menores'
+          ? 'Productos para mascotas y animales de compañía.'
+          : 'Productos para producción animal y aves.'}
+      />
+      <Grid cols={group.cats.length === 1 ? 1 : 2}>
+        {group.cats.map((cat) => (
+          <CategoryCard
+            name={cat.name}
+            image={cat.image}
+            href={`/categorias/${cat.slug}`}
+            count={products.filter((p) => p.category === cat.id).length}
+          />
+        ))}
+      </Grid>
+    </Section>
+  ))}
+
+</MainLayout>

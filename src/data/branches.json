@@ -1,0 +1,32 @@
+[
+  {
+    "id": "matriz",
+    "name": "Sucursal Matriz",
+    "address": "Av. Principal #1250, Col. Centro, Ciudad de México, CP 06000",
+    "phone": "(55) 1234-5678",
+    "whatsapp": "5215512345678",
+    "schedule": "Lunes a Viernes: 9:00 - 18:00 | Sábado: 9:00 - 14:00",
+    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80&auto=format",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661670898886!2d-99.13320000000001!3d19.4326077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92be1b14f01%3A0x50c28e9e346dbce9!2sCiudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1700000000000"
+  },
+  {
+    "id": "norte",
+    "name": "Sucursal Norte",
+    "address": "Blvd. Industrial #890, Col. Valle, Monterrey, NL, CP 64000",
+    "phone": "(81) 8765-4321",
+    "whatsapp": "5218187654321",
+    "schedule": "Lunes a Viernes: 9:00 - 18:00 | Sábado: 9:00 - 14:00",
+    "image": "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=800&q=80&auto=format",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.052738990593!2d-100.31689!3d25.6866142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bfb5e3e2a50f%3A0x9b58e7a5c2e5e567!2sMonterrey!5e0!3m2!1ses!2smx!4v1700000000000"
+  },
+  {
+    "id": "occidente",
+    "name": "Sucursal Occidente",
+    "address": "Av. Vallarta #2340, Col. Arcos Vallarta, Guadalajara, JAL, CP 44130",
+    "phone": "(33) 3456-7890",
+    "whatsapp": "5213334567890",
+    "schedule": "Lunes a Viernes: 9:00 - 18:00 | Sábado: 9:00 - 14:00",
+    "image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&auto=format",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.569308892498!2d-103.3496092!3d20.6596988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b18cb52fd39b%3A0xd63d9302571ec86b!2sGuadalajara!5e0!3m2!1ses!2smx!4v1700000000000"
+  }
+]

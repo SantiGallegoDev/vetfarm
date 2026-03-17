@@ -1,0 +1,41 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/ui/Hero.astro';
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Grid from '../components/ui/Grid.astro';
+import BranchCard from '../components/ui/BranchCard.astro';
+
+import branches from '../data/branches.json';
+---
+
+<MainLayout title="Sucursales" description="Encuentra tu sucursal Vetfarm más cercana. 3 ubicaciones en Ciudad de México, Monterrey y Guadalajara.">
+
+  <Hero
+    title="Sucursales"
+    subtitle="Encuéntranos en 3 ubicaciones estratégicas en México. Estamos cerca de ti."
+    backgroundImage="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80&auto=format"
+    size="small"
+  />
+
+  <Section background="white">
+    <SectionHeading
+      title="Nuestras ubicaciones"
+      subtitle="Visítanos en cualquiera de nuestras sucursales o contáctanos por WhatsApp."
+    />
+    <Grid cols={3}>
+      {branches.map((branch) => (
+        <BranchCard
+          name={branch.name}
+          address={branch.address}
+          phone={branch.phone}
+          whatsapp={branch.whatsapp}
+          schedule={branch.schedule}
+          image={branch.image}
+          mapEmbed={branch.mapEmbed}
+        />
+      ))}
+    </Grid>
+  </Section>
+
+</MainLayout>

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "congreso-veterinario-2024",
+    "title": "Congreso Nacional Veterinario 2024",
+    "description": "Participación de Vetfarm en el Congreso Nacional Veterinario con stand de exhibición y conferencias sobre dermatología veterinaria.",
+    "date": "2024-11-15",
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80&auto=format", "alt": "Stand de Vetfarm en Congreso Nacional Veterinario 2024", "title": "Stand Vetfarm" },
+      { "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&auto=format", "alt": "Conferencia de dermatología veterinaria", "title": "Conferencia dermatología" },
+      { "src": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80&auto=format", "alt": "Equipo Vetfarm en congreso", "title": "Equipo Vetfarm" }
+    ]
+  },
+  {
+    "id": "expo-pecuaria-2024",
+    "title": "Expo Pecuaria Internacional 2024",
+    "description": "Vetfarm presente en la Expo Pecuaria Internacional, presentando la línea completa de productos avícolas y soluciones para producción animal.",
+    "date": "2024-09-20",
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format", "alt": "Stand Vetfarm en Expo Pecuaria", "title": "Expo Pecuaria" },
+      { "src": "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&q=80&auto=format", "alt": "Presentación de productos avícolas", "title": "Productos avícolas" },
+      { "src": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80&auto=format", "alt": "Visitantes en stand Vetfarm", "title": "Visitantes" }
+    ]
+  },
+  {
+    "id": "capacitacion-distribuidores-2024",
+    "title": "Capacitación de Distribuidores 2024",
+    "description": "Jornada de capacitación para nuestra red de distribuidores sobre las nuevas líneas de productos y protocolos de tratamiento.",
+    "date": "2024-07-10",
+    "images": [
+      { "src": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80&auto=format", "alt": "Sesión de capacitación", "title": "Capacitación" },
+      { "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format", "alt": "Distribuidores en práctica", "title": "Práctica" },
+      { "src": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format", "alt": "Entrega de certificados", "title": "Certificados" }
+    ]
+  }
+]

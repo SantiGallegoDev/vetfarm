@@ -1,0 +1,63 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/ui/Hero.astro';
+import Section from '../../components/ui/Section.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Grid from '../../components/ui/Grid.astro';
+import ProductCard from '../../components/ui/ProductCard.astro';
+import Button from '../../components/ui/Button.astro';
+
+import categories from '../../data/categories.json';
+import products from '../../data/products.json';
+
+export function getStaticPaths() {
+  return categories.map((cat) => ({
+    params: { slug: cat.slug },
+    props: { category: cat },
+  }));
+}
+
+const { category } = Astro.props;
+const categoryProducts = products.filter((p) => p.category === category.id);
+---
+
+<MainLayout title={category.name} description={`Productos veterinarios Vetfarm para ${category.name.toLowerCase()}. ${category.description}`}>
+
+  <Hero
+    title={category.name}
+    subtitle={category.description}
+    backgroundImage={category.image}
+    size="small"
+  />
+
+  <Section background="white">
+    <SectionHeading
+      title={`Productos para ${category.name}`}
+      subtitle={`${categoryProducts.length} productos disponibles en esta categoría.`}
+    />
+
+    {categoryProducts.length > 0 ? (
+      <Grid cols={4}>
+        {categoryProducts.map((product) => (
+          <ProductCard
+            name={product.name}
+            description={product.description}
+            image={product.image}
+            category={category.name}
+            species={product.species}
+            presentations={product.presentations}
+          />
+        ))}
+      </Grid>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-neutral-400 text-lg">No hay productos disponibles en esta categoría por el momento.</p>
+      </div>
+    )}
+
+    <div class="text-center mt-12">
+      <Button href="/categorias" variant="outline">Volver a categorías</Button>
+    </div>
+  </Section>
+
+</MainLayout>

@@ -1,0 +1,98 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/ui/Hero.astro';
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Grid from '../components/ui/Grid.astro';
+import ProductCard from '../components/ui/ProductCard.astro';
+
+import products from '../data/products.json';
+import categories from '../data/categories.json';
+---
+
+<MainLayout title="Productos" description="Catálogo completo de productos veterinarios Vetfarm. Soluciones para caninos, felinos y aves.">
+
+  <Hero
+    title="Nuestros productos"
+    subtitle="Catálogo completo de productos veterinarios de alta calidad para especies menores y mayores."
+    backgroundImage="https://images.unsplash.com/photo-1587764379873-97837921fd44?w=1920&q=80&auto=format"
+    size="small"
+  />
+
+  <!-- Filters -->
+  <Section background="white">
+    <div class="flex items-center gap-3 mb-12 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-x-visible sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
+      <button
+        class="filter-btn shrink-0 px-5 py-2 rounded-full text-sm font-medium border-2 transition-all duration-200 cursor-pointer bg-primary-600 text-white border-primary-600"
+        data-filter="all"
+      >
+        Todos
+      </button>
+      {categories.map((cat) => (
+        <button
+          class="filter-btn shrink-0 px-5 py-2 rounded-full text-sm font-medium border-2 transition-all duration-200 cursor-pointer bg-white text-neutral-600 border-neutral-200 hover:border-primary-600 hover:text-primary-600"
+          data-filter={cat.id}
+        >
+          {cat.name}
+        </button>
+      ))}
+    </div>
+
+    <Grid cols={4}>
+      {products.map((product) => (
+        <div class="product-item" data-category={product.category}>
+          <ProductCard
+            name={product.name}
+            description={product.description}
+            image={product.image}
+            category={categories.find((c) => c.id === product.category)?.name || product.category}
+            species={product.species}
+            presentations={product.presentations}
+          />
+        </div>
+      ))}
+    </Grid>
+
+    <!-- No results message -->
+    <div id="no-results" class="hidden text-center py-12">
+      <p class="text-neutral-400 text-lg">No se encontraron productos en esta categoría.</p>
+    </div>
+  </Section>
+
+</MainLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const productItems = document.querySelectorAll('.product-item');
+  const noResults = document.getElementById('no-results');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Update active button
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-primary-600', 'text-white', 'border-primary-600');
+        b.classList.add('bg-white', 'text-neutral-600', 'border-neutral-200');
+      });
+      btn.classList.remove('bg-white', 'text-neutral-600', 'border-neutral-200');
+      btn.classList.add('bg-primary-600', 'text-white', 'border-primary-600');
+
+      // Filter products
+      let visibleCount = 0;
+      productItems.forEach((item) => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          (item as HTMLElement).style.display = '';
+          visibleCount++;
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Toggle no results
+      if (noResults) {
+        noResults.classList.toggle('hidden', visibleCount > 0);
+      }
+    });
+  });
+</script>

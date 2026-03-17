@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+  light?: boolean;
+  label?: string;
+}
+
+const {
+  title,
+  subtitle,
+  align = 'center',
+  light = false,
+  label,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'mb-12 md:mb-16',
+    align === 'center' && 'text-center',
+  ]}
+  data-animate
+>
+  {label && (
+    <span
+      class:list={[
+        'inline-block text-sm font-semibold px-3 py-1 rounded-full mb-4',
+        light ? 'text-white/80 bg-white/10' : 'text-primary-600 bg-primary-50',
+      ]}
+    >
+      {label}
+    </span>
+  )}
+  <h2
+    class:list={[
+      'mb-4 text-balance',
+      light ? 'text-white' : 'text-primary-800',
+    ]}
+  >
+    {title}
+  </h2>
+  {/* Decorative line */}
+  <div class:list={[
+    'flex items-center gap-2 mb-5',
+    align === 'center' && 'justify-center',
+  ]}>
+    <span class:list={['w-8 h-1 rounded-full', light ? 'bg-white/30' : 'bg-primary-200']}></span>
+    <span class:list={['w-3 h-3 rounded-full', light ? 'bg-secondary-400' : 'bg-secondary-500']}></span>
+    <span class:list={['w-8 h-1 rounded-full', light ? 'bg-white/30' : 'bg-primary-200']}></span>
+  </div>
+  {subtitle && (
+    <p
+      class:list={[
+        'text-lg max-w-2xl leading-relaxed',
+        align === 'center' && 'mx-auto',
+        light ? 'text-white/80' : 'text-neutral-500',
+      ]}
+    >
+      {subtitle}
+    </p>
+  )}
+</div>

@@ -1,0 +1,203 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  backgroundImage?: string;
+  overlay?: boolean;
+  size?: 'large' | 'medium' | 'small';
+  badges?: string[];
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
+}
+
+const {
+  title,
+  subtitle,
+  buttonText,
+  buttonHref = '#',
+  backgroundImage,
+  overlay = true,
+  size = 'large',
+  badges = [],
+  secondaryButtonText,
+  secondaryButtonHref,
+} = Astro.props;
+
+const heightClass = {
+  large: 'min-h-[700px] md:min-h-[800px] lg:min-h-[90vh]',
+  medium: 'min-h-[450px] md:min-h-[550px]',
+  small: 'min-h-[320px] md:min-h-[400px]',
+}[size];
+---
+
+<section
+  class:list={[
+    'relative flex items-center overflow-hidden',
+    heightClass,
+  ]}
+>
+  {/* Background */}
+  {backgroundImage ? (
+    <img
+      src={backgroundImage}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+    />
+  ) : (
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700"></div>
+  )}
+
+  {/* Overlay */}
+  {overlay && (
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-900/70 to-primary-900/40"></div>
+  )}
+
+  {/* Decorative elements */}
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    {/* Floating circles */}
+    <div class="absolute top-20 right-[10%] w-64 h-64 bg-primary-400/10 rounded-full blur-3xl animate-pulse-soft"></div>
+    <div class="absolute bottom-32 left-[5%] w-48 h-48 bg-secondary-400/10 rounded-full blur-3xl animate-pulse-soft" style="animation-delay: 1.5s;"></div>
+    <div class="absolute top-1/2 right-[30%] w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+
+    {/* Dot pattern */}
+    {size === 'large' && (
+      <div class="absolute top-10 right-10 opacity-20 hidden lg:block">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+          {Array.from({length: 36}).map((_, i) => (
+            <circle cx={10 + (i % 6) * 20} cy={10 + Math.floor(i / 6) * 20} r="2" fill="white" />
+          ))}
+        </svg>
+      </div>
+    )}
+
+    {/* Decorative paw prints - only on large hero */}
+    {size === 'large' && (
+      <>
+        <svg class="absolute bottom-40 right-[15%] w-16 h-16 text-white/[0.07] rotate-12 hidden md:block" viewBox="0 0 24 24" fill="currentColor">
+          <ellipse cx="7" cy="5" rx="2.5" ry="3"/>
+          <ellipse cx="17" cy="5" rx="2.5" ry="3"/>
+          <ellipse cx="3.5" cy="11" rx="2.5" ry="3"/>
+          <ellipse cx="20.5" cy="11" rx="2.5" ry="3"/>
+          <path d="M12 22c-4 0-7-3-7-6.5S8 9 12 9s7 3.5 7 6.5S16 22 12 22z"/>
+        </svg>
+        <svg class="absolute top-32 left-[8%] w-12 h-12 text-white/[0.05] -rotate-20 hidden lg:block" viewBox="0 0 24 24" fill="currentColor">
+          <ellipse cx="7" cy="5" rx="2.5" ry="3"/>
+          <ellipse cx="17" cy="5" rx="2.5" ry="3"/>
+          <ellipse cx="3.5" cy="11" rx="2.5" ry="3"/>
+          <ellipse cx="20.5" cy="11" rx="2.5" ry="3"/>
+          <path d="M12 22c-4 0-7-3-7-6.5S8 9 12 9s7 3.5 7 6.5S16 22 12 22z"/>
+        </svg>
+      </>
+    )}
+  </div>
+
+  {/* Content */}
+  <div class="relative z-10 container-custom px-4 w-full">
+    <div class:list={[
+      size === 'large' ? 'max-w-3xl' : 'max-w-4xl mx-auto text-center',
+    ]}>
+
+      {/* Badges */}
+      {badges.length > 0 && (
+        <div class="flex flex-wrap gap-3 mb-6 animate-fade-in-up" class:list={[size !== 'large' && 'justify-center']}>
+          {badges.map((badge) => (
+            <span class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full border border-white/20">
+              <svg class="w-3.5 h-3.5 text-secondary-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+              </svg>
+              {badge}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Title */}
+      <h1 class:list={[
+        'mb-6 text-white drop-shadow-lg animate-fade-in-up text-balance',
+        size === 'large' && 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl',
+      ]}>{title}</h1>
+
+      {/* Subtitle */}
+      {subtitle && (
+        <p class:list={[
+          'mb-8 text-white/90 leading-relaxed animate-fade-in-up',
+          size === 'large' ? 'text-lg md:text-xl max-w-2xl' : 'text-lg md:text-xl max-w-3xl mx-auto',
+        ]} style="animation-delay: 150ms;">
+          {subtitle}
+        </p>
+      )}
+
+      {/* Buttons */}
+      {(buttonText || secondaryButtonText) && (
+        <div class:list={[
+          'flex flex-col sm:flex-row gap-4 animate-fade-in-up',
+          size !== 'large' && 'justify-center',
+        ]} style="animation-delay: 300ms;">
+          {buttonText && (
+            <a
+              href={buttonHref}
+              class="inline-flex items-center justify-center gap-2 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-secondary-500/25 hover:-translate-y-0.5 group"
+            >
+              {buttonText}
+              <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          )}
+          {secondaryButtonText && (
+            <a
+              href={secondaryButtonHref || '#'}
+              class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-300 border border-white/25 hover:border-white/40"
+            >
+              {secondaryButtonText}
+            </a>
+          )}
+        </div>
+      )}
+
+      {/* Trust indicators - only on large hero */}
+      {size === 'large' && (
+        <div class="mt-12 flex flex-wrap items-center gap-6 md:gap-8 animate-fade-in-up" style="animation-delay: 500ms;">
+          <div class="flex items-center gap-2 text-white/70">
+            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-medium">Desde 1995</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/70">
+            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-medium">500+ puntos de venta</span>
+          </div>
+          <div class="flex items-center gap-2 text-white/70">
+            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-medium">3 sucursales en México</span>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+
+  {/* Wave bottom */}
+  {size === 'large' && (
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg class="w-full h-16 md:h-24" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path fill="white" d="M0,80 L0,40 C240,10 480,0 720,20 C960,40 1200,60 1440,30 L1440,80 Z" />
+      </svg>
+    </div>
+  )}
+
+  {size === 'medium' && (
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg class="w-full h-8 md:h-12" viewBox="0 0 1440 40" preserveAspectRatio="none">
+        <path fill="white" d="M0,40 L0,20 Q720,0 1440,20 L1440,40 Z" />
+      </svg>
+    </div>
+  )}
+</section>

@@ -1,0 +1,60 @@
+---
+interface Props {
+  name: string;
+  image: string;
+  href: string;
+  count?: number;
+}
+
+const { name, image, href, count } = Astro.props;
+
+const iconMap: Record<string, string> = {
+  'Canino': `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21s-8-4.5-8-11a4 4 0 018 0 4 4 0 018 0c0 6.5-8 11-8 11z"/></svg>`,
+  'Felino': `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`,
+  'Aves': `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>`,
+};
+
+const icon = iconMap[name] || '';
+---
+
+<a
+  href={href}
+  class="group block bg-white rounded-2xl shadow-md shadow-neutral-200/50 border border-neutral-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+>
+  <div class="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
+    <img
+      src={image}
+      alt={name}
+      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-primary-900/30 to-transparent"></div>
+
+    {/* Category info overlay */}
+    <div class="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+      <div class="flex items-center gap-3">
+        {icon && (
+          <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white border border-white/20 shrink-0">
+            <Fragment set:html={icon} />
+          </div>
+        )}
+        <div>
+          <h3 class="text-white font-heading font-bold text-xl md:text-2xl">{name}</h3>
+          {count !== undefined && (
+            <p class="text-white/70 text-sm mt-0.5">{count} productos disponibles</p>
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* Explore button that slides up on hover */}
+    <div class="absolute inset-x-0 bottom-0 flex items-end justify-center pb-5 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+      <span class="bg-white text-primary-700 text-sm font-semibold px-5 py-2 rounded-full shadow-lg flex items-center gap-1.5">
+        Explorar
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,198 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/ui/Hero.astro';
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Grid from '../components/ui/Grid.astro';
+import Card from '../components/ui/Card.astro';
+
+const values = [
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
+    title: 'Calidad',
+    description: 'Productos desarrollados bajo los más altos estándares de calidad y normativas veterinarias vigentes.',
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>',
+    title: 'Innovación',
+    description: 'Investigación constante para ofrecer soluciones veterinarias modernas y efectivas.',
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>',
+    title: 'Compromiso',
+    description: 'Dedicación total al bienestar animal y a la comunidad de profesionales veterinarios.',
+  },
+  {
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+    title: 'Servicio',
+    description: 'Atención personalizada y asesoría técnica para cada uno de nuestros clientes y distribuidores.',
+  },
+];
+
+const timeline = [
+  { year: '1995', title: 'Fundación', description: 'Vetfarm nace en la Ciudad de México con la visión de transformar la salud animal en el país.' },
+  { year: '2000', title: 'Primera línea canina', description: 'Lanzamiento de nuestra primera línea de productos dermatológicos para caninos.' },
+  { year: '2005', title: 'Expansión nacional', description: 'Apertura de sucursales en Monterrey y Guadalajara para atender el mercado nacional.' },
+  { year: '2010', title: 'Línea felina', description: 'Desarrollo de productos especializados para la salud de gatos.' },
+  { year: '2015', title: 'Línea avícola', description: 'Incorporación de soluciones para aves de producción, ampliando nuestro portafolio.' },
+  { year: '2020', title: 'Modernización', description: 'Renovación de imagen, nuevas formulaciones y digitalización de procesos.' },
+  { year: '2024', title: 'Liderazgo', description: 'Consolidación como empresa líder con presencia en más de 500 puntos de venta en México.' },
+];
+---
+
+<MainLayout title="Empresa" description="Conoce la historia, misión, visión y valores de Vetfarm. Más de 30 años de experiencia en salud animal.">
+
+  <Hero
+    title="Nuestra empresa"
+    subtitle="Más de 30 años comprometidos con la salud y el bienestar animal en México."
+    backgroundImage="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=1920&q=80&auto=format"
+    size="medium"
+  />
+
+  <!-- History -->
+  <Section background="white">
+    <SectionHeading
+      title="Nuestra historia"
+      subtitle="Un recorrido de dedicación, innovación y compromiso con la salud animal."
+    />
+    <div class="max-w-3xl mx-auto" data-animate>
+      <p class="text-neutral-600 text-lg leading-relaxed mb-6">
+        Vetfarm fue fundada en 1995 en la Ciudad de México por un grupo de médicos veterinarios con la visión de ofrecer productos de alta calidad para el tratamiento y prevención de enfermedades en animales.
+      </p>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        A lo largo de más de tres décadas, hemos crecido de ser un pequeño laboratorio local a convertirnos en una empresa reconocida a nivel nacional, con tres sucursales, una red de distribuidores en todo el país y un portafolio de productos que cubre las necesidades de especies menores y mayores.
+      </p>
+      <p class="text-neutral-600 leading-relaxed">
+        Nuestro compromiso con la investigación y el desarrollo nos ha permitido innovar constantemente, ofreciendo formulaciones modernas y efectivas que cuentan con la confianza de miles de profesionales veterinarios.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Timeline -->
+  <Section background="gray">
+    <SectionHeading
+      title="Nuestra trayectoria"
+      subtitle="Momentos clave en la historia de Vetfarm."
+    />
+    <div class="max-w-3xl mx-auto">
+      <div class="relative">
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary-200 -translate-x-1/2"></div>
+        {timeline.map((item, index) => (
+          <div class:list={[
+            'relative flex items-start mb-10 last:mb-0',
+            index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
+          ]}>
+            <div class="hidden md:block md:w-1/2" />
+            <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white shadow -translate-x-1/2 mt-1.5 z-10"></div>
+            <div class:list={[
+              'ml-10 md:ml-0 md:w-1/2',
+              index % 2 === 0 ? 'md:pl-10' : 'md:pr-10',
+            ]}>
+              <span class="text-sm font-bold text-primary-600">{item.year}</span>
+              <h4 class="font-heading font-semibold text-lg text-neutral-800 mt-1">{item.title}</h4>
+              <p class="text-neutral-500 text-sm mt-1 leading-relaxed">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- Mission & Vision -->
+  <Section background="white">
+    <Grid cols={2} gap="lg" stagger={false}>
+      <div class="bg-primary-50 rounded-2xl p-8 md:p-10" data-animate="slide-left">
+        <div class="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="font-heading font-bold text-2xl text-primary-800 mb-4">Misión</h3>
+        <p class="text-neutral-600 leading-relaxed">
+          Desarrollar y distribuir productos veterinarios de la más alta calidad, contribuyendo al bienestar animal y apoyando a los profesionales de la salud animal con soluciones innovadoras, efectivas y accesibles.
+        </p>
+      </div>
+      <div class="bg-secondary-50 rounded-2xl p-8 md:p-10" data-animate="slide-right">
+        <div class="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        </div>
+        <h3 class="font-heading font-bold text-2xl text-secondary-700 mb-4">Visión</h3>
+        <p class="text-neutral-600 leading-relaxed">
+          Ser la empresa veterinaria líder en México y Latinoamérica, reconocida por la excelencia de nuestros productos, la innovación científica y nuestro compromiso con la comunidad veterinaria y el bienestar animal.
+        </p>
+      </div>
+    </Grid>
+  </Section>
+
+  <!-- Values -->
+  <Section background="gray">
+    <SectionHeading
+      title="Nuestros valores"
+      subtitle="Los principios que guían cada decisión en Vetfarm."
+    />
+    <Grid cols={4}>
+      {values.map((value) => (
+        <Card>
+          <div class="text-primary-600 mb-4" set:html={value.icon} />
+          <h4 class="font-heading font-semibold text-lg text-neutral-800 mb-2">{value.title}</h4>
+          <p class="text-sm text-neutral-500 leading-relaxed">{value.description}</p>
+        </Card>
+      ))}
+    </Grid>
+  </Section>
+
+  <!-- Team -->
+  <Section background="white">
+    <SectionHeading
+      title="Nuestro equipo"
+      subtitle="Un equipo multidisciplinario de profesionales dedicados a la salud animal."
+    />
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Vetfarm cuenta con un equipo de médicos veterinarios, químicos farmacéuticos, biólogos y especialistas en producción animal que trabajan en conjunto para desarrollar las mejores soluciones para nuestros clientes.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-10 h-10 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <p class="text-sm font-semibold text-neutral-700">+25</p>
+          <p class="text-xs text-neutral-400">Veterinarios</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-10 h-10 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <p class="text-sm font-semibold text-neutral-700">+10</p>
+          <p class="text-xs text-neutral-400">Investigadores</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-10 h-10 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <p class="text-sm font-semibold text-neutral-700">+50</p>
+          <p class="text-xs text-neutral-400">Colaboradores</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary-100 rounded-full mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-10 h-10 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+            </svg>
+          </div>
+          <p class="text-sm font-semibold text-neutral-700">3</p>
+          <p class="text-xs text-neutral-400">Sucursales</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+</MainLayout>
