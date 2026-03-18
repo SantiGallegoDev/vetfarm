@@ -9,11 +9,11 @@ import BranchCard from '../components/ui/BranchCard.astro';
 import branches from '../data/branches.json';
 ---
 
-<MainLayout title="Sucursales" description="Encuentra tu sucursal Vetfarm más cercana. 3 ubicaciones en Ciudad de México, Monterrey y Guadalajara.">
+<MainLayout title="Sucursales" description="Encuentra tu sucursal Vetfarm más cercana. 3 ubicaciones en Puembo, El Recreo y Av. El Inca en Quito.">
 
   <Hero
     title="Sucursales"
-    subtitle="Encuéntranos en 3 ubicaciones estratégicas en México. Estamos cerca de ti."
+    subtitle="Encuéntranos en 3 ubicaciones estratégicas en Ecuador. Estamos cerca de ti."
     backgroundImage="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80&auto=format"
     size="small"
   />
@@ -31,7 +31,6 @@ import branches from '../data/branches.json';
           phone={branch.phone}
           whatsapp={branch.whatsapp}
           schedule={branch.schedule}
-          image={branch.image}
           mapEmbed={branch.mapEmbed}
         />
       ))}

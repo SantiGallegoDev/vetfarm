@@ -4,19 +4,14 @@ import Hero from '../components/ui/Hero.astro';
 import Section from '../components/ui/Section.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
 import Grid from '../components/ui/Grid.astro';
-import CategoryCard from '../components/ui/CategoryCard.astro';
-import ProductCard from '../components/ui/ProductCard.astro';
 import TestimonialCard from '../components/ui/TestimonialCard.astro';
 import BranchCard from '../components/ui/BranchCard.astro';
 import Button from '../components/ui/Button.astro';
 
-import categories from '../data/categories.json';
-import products from '../data/products.json';
 import testimonials from '../data/testimonials.json';
 import branches from '../data/branches.json';
 import events from '../data/events.json';
 
-const featuredProducts = products.filter((p) => p.featured);
 const previewTestimonials = testimonials.slice(0, 3);
 const previewBranches = branches.slice(0, 3);
 
@@ -49,11 +44,11 @@ const features = [
   <!-- Hero -->
   <Hero
     title="Salud animal con respaldo científico"
-    subtitle="Más de 30 años desarrollando productos veterinarios de calidad para el bienestar de especies menores y mayores. Confían en nosotros miles de profesionales veterinarios en todo México."
-    buttonText="Ver productos"
-    buttonHref="/productos"
-    secondaryButtonText="Contactar por WhatsApp"
-    secondaryButtonHref="https://wa.me/5210000000000?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos."
+    subtitle="Más de 30 años desarrollando productos veterinarios de calidad para el bienestar de especies menores y mayores. Confían en nosotros miles de profesionales veterinarios en todo Ecuador."
+    buttonText="Contactar por WhatsApp"
+    buttonHref="https://wa.me/5210000000000?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Vetfarm."
+    secondaryButtonText="Conócenos"
+    secondaryButtonHref="/empresa"
     backgroundImage="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1920&q=80&auto=format"
     size="large"
     badges={['Calidad certificada', 'Envío nacional', 'Asesoría veterinaria']}
@@ -86,7 +81,7 @@ const features = [
         <span class="inline-block text-sm font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full mb-4">Sobre Vetfarm</span>
         <h2 class="text-primary-800 mb-6 text-balance">Líderes en salud animal desde 1995</h2>
         <p class="text-neutral-600 text-lg leading-relaxed mb-4">
-          Vetfarm se ha consolidado como una empresa líder en el desarrollo y distribución de productos veterinarios en México. Nuestra misión es ofrecer soluciones de salud animal con los más altos estándares de calidad.
+          Vetfarm se ha consolidado como una empresa líder en el desarrollo y distribución de productos veterinarios en Ecuador. Nuestra misión es ofrecer soluciones de salud animal con los más altos estándares de calidad.
         </p>
         <p class="text-neutral-500 leading-relaxed mb-8">
           Contamos con líneas especializadas para caninos, felinos y aves, respaldadas por investigación científica y la confianza de miles de profesionales veterinarios en todo el país.
@@ -158,56 +153,6 @@ const features = [
           </div>
         </div>
       </div>
-    </div>
-  </Section>
-
-  <!-- Categories -->
-  <section class="section-padding bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-primary-100/30 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary-100/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
-
-    <div class="container-custom relative z-10">
-      <SectionHeading
-        title="Nuestras categorías"
-        subtitle="Productos especializados por especie para cubrir las necesidades de cada paciente."
-      />
-      <Grid cols={3}>
-        {categories.map((cat) => (
-          <CategoryCard
-            name={cat.name}
-            image={cat.image}
-            href={`/categorias/${cat.slug}`}
-            count={products.filter((p) => p.category === cat.id).length}
-          />
-        ))}
-      </Grid>
-      <div class="text-center mt-10" data-animate>
-        <Button href="/categorias" variant="outline">Ver todas las categorías</Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Products -->
-  <Section background="white">
-    <SectionHeading
-      title="Productos destacados"
-      subtitle="Los productos más recomendados por profesionales veterinarios."
-    />
-    <Grid cols={4}>
-      {featuredProducts.map((product) => (
-        <ProductCard
-          name={product.name}
-          description={product.description}
-          image={product.image}
-          category={categories.find((c) => c.id === product.category)?.name || product.category}
-          species={product.species}
-          presentations={product.presentations}
-        />
-      ))}
-    </Grid>
-    <div class="text-center mt-10" data-animate>
-      <Button href="/productos" variant="primary" size="lg">Ver catálogo completo</Button>
     </div>
   </Section>
 
@@ -283,7 +228,7 @@ const features = [
   <Section background="gray">
     <SectionHeading
       title="Nuestras sucursales"
-      subtitle="Encuéntranos en 3 ubicaciones estratégicas en México."
+      subtitle="Encuéntranos en 3 ubicaciones estratégicas en Ecuador."
     />
     <Grid cols={3}>
       {previewBranches.map((branch) => (
@@ -293,7 +238,6 @@ const features = [
           phone={branch.phone}
           whatsapp={branch.whatsapp}
           schedule={branch.schedule}
-          image={branch.image}
           mapEmbed={branch.mapEmbed}
         />
       ))}
@@ -327,13 +271,12 @@ const features = [
     <div class="container-custom relative z-10">
       <div class="max-w-3xl" data-animate>
         <span class="inline-block text-sm font-semibold text-secondary-400 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full mb-4">Nuestra historia</span>
-        <h2 class="text-white mb-6 text-balance">Más de 30 años transformando la salud animal en México</h2>
+        <h2 class="text-white mb-6 text-balance">Más de 30 años transformando la salud animal en Ecuador</h2>
         <p class="text-white/85 text-lg leading-relaxed mb-8 max-w-2xl">
-          Fundada en 1995, Vetfarm nació con la visión de transformar la salud animal en México. Hoy somos una empresa reconocida por la calidad de nuestros productos y el compromiso con la comunidad veterinaria.
+          Fundada en 1995, Vetfarm nació con la visión de transformar la salud animal en Ecuador. Hoy somos una empresa reconocida por la calidad de nuestros productos y el compromiso con la comunidad veterinaria.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <Button href="/empresa" variant="secondary" size="lg">Conoce nuestra historia</Button>
-          <Button href="/contacto" variant="outline" class="border-white/30 text-white hover:bg-white/10">Contáctanos</Button>
         </div>
       </div>
     </div>

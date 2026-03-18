@@ -5,24 +5,13 @@ interface Props {
   phone: string;
   whatsapp: string;
   schedule: string;
-  image: string;
   mapEmbed: string;
 }
 
-const { name, address, phone, whatsapp, schedule, image, mapEmbed } = Astro.props;
+const { name, address, phone, whatsapp, schedule, mapEmbed } = Astro.props;
 ---
 
 <div class="bg-white rounded-2xl shadow-sm border border-neutral-100 overflow-hidden transition-all duration-300 hover:shadow-md">
-  <!-- Image -->
-  <div class="relative aspect-[16/10] sm:aspect-video bg-neutral-100 overflow-hidden">
-    <img
-      src={image}
-      alt={`Sucursal ${name}`}
-      class="w-full h-full object-cover"
-      loading="lazy"
-    />
-  </div>
-
   <!-- Map -->
   <div class="aspect-[16/10] sm:aspect-video">
     <iframe
