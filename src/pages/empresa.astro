@@ -9,42 +9,42 @@ import Card from '../components/ui/Card.astro';
 const values = [
   {
     icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
-    title: 'Calidad',
-    description: 'Productos desarrollados bajo los más altos estándares de calidad y normativas veterinarias vigentes.',
+    title: 'Honestidad',
+    description: 'Te decimos qué tenemos en stock, qué no tenemos y por qué. Sin promesas que no podemos cumplir.',
   },
   {
-    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>',
-    title: 'Innovación',
-    description: 'Investigación constante para ofrecer soluciones veterinarias modernas y efectivas.',
+    icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+    title: 'Puntualidad',
+    description: 'Tu paciente no puede esperar. Nuestro compromiso con el abastecimiento oportuno no es un slogan: es una operación.',
   },
   {
     icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>',
-    title: 'Compromiso',
-    description: 'Dedicación total al bienestar animal y a la comunidad de profesionales veterinarios.',
+    title: 'Calidez humana',
+    description: 'Detrás de cada pedido hay un veterinario o un productor que necesita respuesta rápida. Los atendemos como tal.',
   },
   {
     icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
-    title: 'Servicio',
-    description: 'Atención personalizada y asesoría técnica para cada uno de nuestros clientes y distribuidores.',
+    title: 'Calidad sin negociación',
+    description: 'Solo trabajamos con marcas de respaldo comprobado. La calidad del producto que compras en Vetfarm no es negociable.',
   },
 ];
 
 const timeline = [
-  { year: '1995', title: 'Fundación', description: 'Vetfarm nace en la Quito, Ecuador con la visión de transformar la salud animal en el país.' },
-  { year: '2000', title: 'Primera línea canina', description: 'Lanzamiento de nuestra primera línea de productos dermatológicos para caninos.' },
-  { year: '2005', title: 'Expansión nacional', description: 'Apertura de sucursales en Monterrey y Guadalajara para atender el mercado nacional.' },
-  { year: '2010', title: 'Línea felina', description: 'Desarrollo de productos especializados para la salud de gatos.' },
-  { year: '2015', title: 'Línea avícola', description: 'Incorporación de soluciones para aves de producción, ampliando nuestro portafolio.' },
-  { year: '2020', title: 'Modernización', description: 'Renovación de imagen, nuevas formulaciones y digitalización de procesos.' },
-  { year: '2024', title: 'Liderazgo', description: 'Consolidación como empresa líder con presencia en más de 500 puntos de venta en Ecuador.' },
+  { year: '1995', title: 'Fundación', description: 'Vetfarm nace en Quito, fundada por técnicos especializados en producción y reproducción bovina.' },
+  { year: '2000', title: 'Expansión de cobertura', description: 'Ampliamos nuestra cobertura a especies menores: caninos y felinos entran al portafolio farmacéutico.' },
+  { year: '2005', title: 'Segunda sucursal', description: 'Apertura de la sucursal El Recreo para atender la demanda creciente en Quito.' },
+  { year: '2010', title: 'Línea avícola', description: 'Incorporamos soluciones farmacéuticas para aves de producción, completando la cobertura agropecuaria.' },
+  { year: '2015', title: 'Nuevas marcas', description: 'Incorporación de laboratorios internacionales reconocidos: VetNova, Vet Gamma y otros.' },
+  { year: '2020', title: 'Atención digital', description: 'Implementación de canales digitales y WhatsApp para consulta y pedidos en línea.' },
+  { year: '2024', title: 'Consolidación', description: 'Tres sucursales activas en Quito y presencia consolidada en el mercado veterinario nacional.' },
 ];
 ---
 
-<MainLayout title="Empresa" description="Conoce la historia, misión, visión y valores de Vetfarm. Más de 30 años de experiencia en salud animal.">
+<MainLayout title="Quiénes somos" description="Vetfarm nació en 1995 fundada por técnicos en producción bovina. Hoy somos el proveedor de confianza del sector veterinario en Ecuador, con 3 sucursales en Quito.">
 
   <Hero
-    title="Nuestra empresa"
-    subtitle="Más de 30 años comprometidos con la salud y el bienestar animal en Ecuador."
+    title="Tres décadas eligiendo lo mejor para la salud animal"
+    subtitle="Fundada por técnicos del sector. Consolidada por la confianza del veterinario ecuatoriano. Esto es Vetfarm."
     backgroundImage="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=1920&q=80&auto=format"
     size="medium"
   />
@@ -52,18 +52,18 @@ const timeline = [
   <!-- History -->
   <Section background="white">
     <SectionHeading
-      title="Nuestra historia"
-      subtitle="Un recorrido de dedicación, innovación y compromiso con la salud animal."
+      title="De la ganadería a todas las especies"
+      subtitle="Cómo un proyecto técnico se convirtió en el referente veterinario de Ecuador."
     />
     <div class="max-w-3xl mx-auto" data-animate>
       <p class="text-neutral-600 text-lg leading-relaxed mb-6">
-        Vetfarm fue fundada en 1995 en Quito, Ecuador por un grupo de médicos veterinarios con la visión de ofrecer productos de alta calidad para el tratamiento y prevención de enfermedades en animales.
+        Vetfarm nació en 1995 fundada por técnicos con amplia experiencia en producción y reproducción bovina. Desde esa base sólida y especializada, fuimos ampliando nuestra cobertura farmacéutica hacia la mayoría de especies domésticas, respondiendo a la necesidad del sector veterinario ecuatoriano.
       </p>
       <p class="text-neutral-600 leading-relaxed mb-6">
-        A lo largo de más de tres décadas, hemos crecido de ser un pequeño laboratorio local a convertirnos en una empresa reconocida a nivel nacional, con tres sucursales, una red de distribuidores en todo el país y un portafolio de productos que cubre las necesidades de especies menores y mayores.
+        A lo largo de tres décadas crecimos junto al mercado. Hoy contamos con tres sucursales en Quito, una red de distribución a nivel nacional y un portafolio curado de las mejores marcas veterinarias internacionales. No fabricamos todo: seleccionamos lo mejor.
       </p>
       <p class="text-neutral-600 leading-relaxed">
-        Nuestro compromiso con la investigación y el desarrollo nos ha permitido innovar constantemente, ofreciendo formulaciones modernas y efectivas que cuentan con la confianza de miles de profesionales veterinarios.
+        Lo que nos ha mantenido durante 30 años no es la innovación por sí sola. Es la coherencia: el mismo compromiso con el abastecimiento oportuno, los mismos estándares de calidad en cada producto, la misma atención directa al veterinario y al productor que nos eligió desde el primer día.
       </p>
     </div>
   </Section>
@@ -72,7 +72,7 @@ const timeline = [
   <Section background="gray">
     <SectionHeading
       title="Nuestra trayectoria"
-      subtitle="Momentos clave en la historia de Vetfarm."
+      subtitle="Momentos clave en 30 años de servicio al sector veterinario ecuatoriano."
     />
     <div class="max-w-3xl mx-auto">
       <div class="relative">
@@ -109,7 +109,7 @@ const timeline = [
         </div>
         <h3 class="font-heading font-bold text-2xl text-primary-800 mb-4">Misión</h3>
         <p class="text-neutral-600 leading-relaxed">
-          Desarrollar y distribuir productos veterinarios de la más alta calidad, contribuyendo al bienestar animal y apoyando a los profesionales de la salud animal con soluciones innovadoras, efectivas y accesibles.
+          Abastecer al sector veterinario y agropecuario ecuatoriano con productos farmacéuticos de marcas reconocidas, garantizando disponibilidad oportuna, calidad verificada y asesoría técnica especializada en cada punto de contacto.
         </p>
       </div>
       <div class="bg-secondary-50 rounded-2xl p-8 md:p-10" data-animate="slide-right">
@@ -121,7 +121,7 @@ const timeline = [
         </div>
         <h3 class="font-heading font-bold text-2xl text-secondary-700 mb-4">Visión</h3>
         <p class="text-neutral-600 leading-relaxed">
-          Ser la empresa veterinaria líder en Ecuador y Latinoamérica, reconocida por la excelencia de nuestros productos, la innovación científica y nuestro compromiso con la comunidad veterinaria y el bienestar animal.
+          Ser el proveedor de referencia del sector veterinario ecuatoriano: reconocidos por la confianza que generamos, la calidad de lo que distribuimos y el servicio que damos antes, durante y después de cada venta.
         </p>
       </div>
     </Grid>
@@ -130,8 +130,8 @@ const timeline = [
   <!-- Values -->
   <Section background="gray">
     <SectionHeading
-      title="Nuestros valores"
-      subtitle="Los principios que guían cada decisión en Vetfarm."
+      title="Lo que nos define"
+      subtitle="Los principios que guían cada decisión en Vetfarm desde 1995."
     />
     <Grid cols={4}>
       {values.map((value) => (
@@ -147,12 +147,12 @@ const timeline = [
   <!-- Team -->
   <Section background="white">
     <SectionHeading
-      title="Nuestro equipo"
-      subtitle="Un equipo multidisciplinario de profesionales dedicados a la salud animal."
+      title="El equipo que está detrás de cada producto"
+      subtitle="Veterinarios, técnicos y asesores que conocen a fondo lo que venden. No somos una bodega: somos un equipo especializado."
     />
     <div class="max-w-3xl mx-auto text-center">
       <p class="text-neutral-600 leading-relaxed mb-6">
-        Vetfarm cuenta con un equipo de médicos veterinarios, químicos farmacéuticos, biólogos y especialistas en producción animal que trabajan en conjunto para desarrollar las mejores soluciones para nuestros clientes.
+        El equipo Vetfarm está compuesto por médicos veterinarios, técnicos agropecuarios y especialistas en farmacología animal. Cuando consultas con nosotros, hablas con alguien que entiende tu caso.
       </p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="text-center">

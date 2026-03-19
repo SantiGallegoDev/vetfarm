@@ -9,19 +9,19 @@ import BranchCard from '../components/ui/BranchCard.astro';
 import branches from '../data/branches.json';
 ---
 
-<MainLayout title="Sucursales" description="Encuentra tu sucursal Vetfarm más cercana. 3 ubicaciones en Puembo, El Recreo y Av. El Inca en Quito.">
+<MainLayout title="Sucursales Vetfarm en Quito" description="Visita cualquiera de nuestras 3 sucursales en Quito: Puembo (Matriz), El Recreo y Av. El Inca. Lunes a sábado. También atendemos por WhatsApp.">
 
   <Hero
-    title="Sucursales"
-    subtitle="Encuéntranos en 3 ubicaciones estratégicas en Ecuador. Estamos cerca de ti."
+    title="Estamos en Quito, cerca de ti"
+    subtitle="Puembo, El Recreo y Av. El Inca. Horario de lunes a sábado. Y si no puedes venir, escríbenos por WhatsApp."
     backgroundImage="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80&auto=format"
     size="small"
   />
 
   <Section background="white">
     <SectionHeading
-      title="Nuestras ubicaciones"
-      subtitle="Visítanos en cualquiera de nuestras sucursales o contáctanos por WhatsApp."
+      title="Tres sucursales, una sola calidad de atención"
+      subtitle="Encuentra la sucursal más cercana, revisa el horario y contáctanos directamente. En todas recibes la misma asesoría especializada."
     />
     <Grid cols={3}>
       {branches.map((branch) => (

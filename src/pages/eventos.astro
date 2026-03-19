@@ -8,11 +8,11 @@ import EventGallery from '../components/ui/EventGallery.astro';
 import events from '../data/events.json';
 ---
 
-<MainLayout title="Eventos" description="Galería de eventos, congresos y capacitaciones de Vetfarm en el sector veterinario.">
+<MainLayout title="Eventos y Congresos Veterinarios" description="Congresos nacionales, ferias agropecuarias y jornadas técnicas. Vetfarm presente en el sector veterinario ecuatoriano.">
 
   <Hero
-    title="Eventos"
-    subtitle="Nuestra participación en congresos, exposiciones y capacitaciones del sector veterinario."
+    title="En el campo con el sector veterinario"
+    subtitle="Congresos nacionales, ferias agropecuarias y jornadas técnicas. Vetfarm no solo distribuye productos: forma parte del sector."
     backgroundImage="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80&auto=format"
     size="small"
   />
@@ -24,7 +24,7 @@ import events from '../data/events.json';
         subtitle={event.description}
       />
       <p class="text-center text-sm text-primary-500 font-medium -mt-10 mb-10">
-        {new Date(event.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+        {new Date(event.date).toLocaleDateString('es-EC', { year: 'numeric', month: 'long', day: 'numeric' })}
       </p>
       <EventGallery images={event.images} />
     </Section>
