@@ -156,6 +156,55 @@ const features = [
     </div>
   </Section>
 
+  <!-- Brands Carousel -->
+  <section class="py-12 md:py-16 bg-neutral-50 border-y border-neutral-100 overflow-hidden">
+    <div class="container-custom mb-8 text-center">
+      <span class="inline-block text-sm font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full mb-3">Nuestras marcas</span>
+      <h2 class="text-xl md:text-2xl font-heading font-bold text-neutral-800">Marcas reconocidas que distribuimos</h2>
+    </div>
+    <div class="brands-carousel relative">
+      <div class="brands-track flex items-center gap-12 md:gap-16">
+        {[...Array(2)].map(() => (
+          <div class="flex items-center gap-12 md:gap-16 shrink-0">
+            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <img src="/images/brands/biostar.png" alt="Biostar" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            </div>
+            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <img src="/images/brands/brouwer.png" alt="Brouwer" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            </div>
+            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <img src="/images/brands/osspret.png" alt="Osspret" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            </div>
+            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <img src="/images/brands/vetnova.png" alt="VetNova" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            </div>
+            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <img src="/images/brands/vetgamma.png" alt="Vet Gamma" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .brands-carousel {
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+    .brands-track {
+      animation: scroll-brands 25s linear infinite;
+      width: max-content;
+    }
+    .brands-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scroll-brands {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+
   <!-- Testimonials Preview -->
   <section class="section-padding bg-gradient-to-b from-neutral-50 via-primary-50/30 to-neutral-50 relative overflow-hidden">
     <div class="absolute top-20 left-10 opacity-[0.03]">
