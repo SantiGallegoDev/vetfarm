@@ -163,23 +163,23 @@ const features = [
       <h2 class="text-xl md:text-2xl font-heading font-bold text-neutral-800">Marcas reconocidas que distribuimos</h2>
     </div>
     <div class="brands-carousel relative">
-      <div class="brands-track flex items-center gap-12 md:gap-16">
-        {[...Array(2)].map(() => (
-          <div class="flex items-center gap-12 md:gap-16 shrink-0">
-            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <img src="/images/brands/biostar.png" alt="Biostar" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+      <div class="brands-track flex items-center">
+        {[...Array(4)].map(() => (
+          <div class="flex items-center shrink-0">
+            <div class="flex items-center justify-center w-40 md:w-48 px-6 shrink-0">
+              <img src="/images/brands/biostar.png" alt="Biostar" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
             </div>
-            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <img src="/images/brands/brouwer.png" alt="Brouwer" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            <div class="flex items-center justify-center w-40 md:w-48 px-6 shrink-0">
+              <img src="/images/brands/brouwer.png" alt="Brouwer" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
             </div>
-            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <img src="/images/brands/osspret.png" alt="Osspret" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            <div class="flex items-center justify-center w-40 md:w-48 px-6 shrink-0">
+              <img src="/images/brands/osspret.png" alt="Osspret" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
             </div>
-            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <img src="/images/brands/vetnova.png" alt="VetNova" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            <div class="flex items-center justify-center w-40 md:w-48 px-6 shrink-0">
+              <img src="/images/brands/vetnova.png" alt="VetNova" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
             </div>
-            <div class="flex flex-col items-center gap-2 w-32 md:w-40 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <img src="/images/brands/vetgamma.png" alt="Vet Gamma" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+            <div class="flex items-center justify-center w-40 md:w-48 px-6 shrink-0">
+              <img src="/images/brands/vetgamma.png" alt="Vet Gamma" class="h-14 md:h-20 w-auto object-contain" loading="lazy" />
             </div>
           </div>
         ))}
@@ -193,15 +193,12 @@ const features = [
       -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
     .brands-track {
-      animation: scroll-brands 25s linear infinite;
+      animation: scroll-brands 30s linear infinite;
       width: max-content;
-    }
-    .brands-track:hover {
-      animation-play-state: paused;
     }
     @keyframes scroll-brands {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      100% { transform: translateX(-25%); }
     }
   </style>
 
