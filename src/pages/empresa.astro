@@ -10,7 +10,7 @@ const values = [
   {
     icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
     title: 'Honestidad',
-    description: 'Transparencia en cada proceso. Te decimos qué tenemos en stock, qué no y por qué. Sin promesas que no podemos cumplir.',
+    description: 'Transparencia en cada proceso.',
   },
   {
     icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
@@ -40,13 +40,13 @@ const values = [
 ];
 
 const timeline = [
-  { year: '1995', title: 'Fundación', description: 'Vetfarm nace en Quito, fundada por técnicos especializados en producción y reproducción bovina.' },
-  { year: '2000', title: 'Expansión de cobertura', description: 'Ampliamos nuestra cobertura a especies menores: caninos y felinos entran al portafolio farmacéutico.' },
-  { year: '2005', title: 'Segunda sucursal', description: 'Apertura de la sucursal El Recreo para atender la demanda creciente en Quito.' },
-  { year: '2010', title: 'Línea avícola', description: 'Incorporamos soluciones farmacéuticas para aves de producción, completando la cobertura agropecuaria.' },
-  { year: '2015', title: 'Nuevas marcas', description: 'Incorporación de laboratorios internacionales reconocidos: VetNova, Vet Gamma y otros.' },
-  { year: '2020', title: 'Atención digital', description: 'Implementación de canales digitales y WhatsApp para consulta y pedidos en línea.' },
-  { year: '2024', title: 'Consolidación', description: 'Tres sucursales activas en Quito y presencia consolidada en el mercado veterinario nacional.' },
+  { title: 'Fundación', description: 'Vetfarm nace en Quito, fundada por técnicos especializados en producción y reproducción bovina.' },
+  { title: 'Expansión de cobertura', description: 'Ampliamos nuestra cobertura a especies menores: caninos y felinos entran al portafolio farmacéutico.' },
+  { title: 'Sucursal El Recreo', description: 'Apertura de la sucursal El Recreo para atender la demanda creciente en Quito Sur.' },
+  { title: 'Sucursal El Inca', description: 'Apertura de la sucursal El Inca para atender la demanda creciente en Quito Norte.' },
+  { title: 'Nuevas marcas', description: 'Incorporación de laboratorios internacionales reconocidos: VetNova, Vet Gamma y otros.' },
+  { title: 'Atención digital', description: 'Implementación de canales digitales y WhatsApp para consulta y pedidos en línea.' },
+  { title: 'Consolidación', description: 'Tres sucursales activas en Quito y presencia consolidada en el mercado veterinario nacional.' },
 ];
 ---
 
@@ -70,7 +70,7 @@ const timeline = [
         Vetfarm nació en 1995 fundada por técnicos con amplia experiencia en producción y reproducción bovina. Desde esa base sólida y especializada, fuimos ampliando nuestra cobertura farmacéutica hacia la mayoría de especies domésticas, respondiendo a la necesidad del sector veterinario ecuatoriano.
       </p>
       <p class="text-neutral-600 leading-relaxed mb-6">
-        A lo largo de tres décadas crecimos junto al mercado. Hoy contamos con tres sucursales en Quito, una red de distribución a nivel nacional y un portafolio curado de las mejores marcas veterinarias internacionales. No fabricamos todo: seleccionamos lo mejor.
+        A lo largo de tres décadas crecimos junto al mercado. Hoy contamos con tres sucursales en Quito, una red de distribución a nivel nacional y un portafolio selecto de las mejores marcas veterinarias internacionales y productos para mejorar el bienestar animal. No fabricamos todo: seleccionamos lo mejor.
       </p>
       <p class="text-neutral-600 leading-relaxed">
         Lo que nos ha mantenido durante 30 años no es la innovación por sí sola. Es la coherencia: el mismo compromiso con el abastecimiento oportuno, los mismos estándares de calidad en cada producto, la misma atención directa al veterinario y al productor que nos eligió desde el primer día.
@@ -98,8 +98,7 @@ const timeline = [
               'ml-10 md:ml-0 md:w-1/2',
               index % 2 === 0 ? 'md:pl-10' : 'md:pr-10',
             ]}>
-              <span class="text-sm font-bold text-primary-600">{item.year}</span>
-              <h4 class="font-heading font-semibold text-lg text-neutral-800 mt-1">{item.title}</h4>
+              <h4 class="font-heading font-semibold text-lg text-neutral-800">{item.title}</h4>
               <p class="text-neutral-500 text-sm mt-1 leading-relaxed">{item.description}</p>
             </div>
           </div>
@@ -131,7 +130,7 @@ const timeline = [
         </div>
         <h3 class="font-heading font-bold text-2xl text-secondary-700 mb-4">Visión</h3>
         <p class="text-neutral-600 leading-relaxed">
-          Ser la empresa líder del mercado ecuatoriano en importación y comercialización de productos farmacéuticos veterinarios de alta calidad a precios competitivos, con nuestra filosofía de calidad en el servicio al cliente como sello distintivo.
+          Ser empresa líder del mercado ecuatoriano en importación y comercialización de productos farmacéuticos veterinarios y productos enfocados a mejorar el bienestar animal, de alta calidad a precios competitivos.
         </p>
       </div>
     </Grid>
@@ -171,8 +170,7 @@ const timeline = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </div>
-          <p class="text-sm font-semibold text-neutral-700">+25</p>
-          <p class="text-xs text-neutral-400">Veterinarios</p>
+          <p class="text-sm font-semibold text-neutral-700">Veterinarios</p>
         </div>
         <div class="text-center">
           <div class="w-20 h-20 bg-primary-100 rounded-full mx-auto mb-3 flex items-center justify-center">
@@ -180,8 +178,7 @@ const timeline = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
             </svg>
           </div>
-          <p class="text-sm font-semibold text-neutral-700">+10</p>
-          <p class="text-xs text-neutral-400">Investigadores</p>
+          <p class="text-sm font-semibold text-neutral-700">Investigadores</p>
         </div>
         <div class="text-center">
           <div class="w-20 h-20 bg-primary-100 rounded-full mx-auto mb-3 flex items-center justify-center">
@@ -189,8 +186,7 @@ const timeline = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <p class="text-sm font-semibold text-neutral-700">+50</p>
-          <p class="text-xs text-neutral-400">Colaboradores</p>
+          <p class="text-sm font-semibold text-neutral-700">Colaboradores</p>
         </div>
         <div class="text-center">
           <div class="w-20 h-20 bg-primary-100 rounded-full mx-auto mb-3 flex items-center justify-center">
@@ -198,8 +194,7 @@ const timeline = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
             </svg>
           </div>
-          <p class="text-sm font-semibold text-neutral-700">3</p>
-          <p class="text-xs text-neutral-400">Sucursales</p>
+          <p class="text-sm font-semibold text-neutral-700">Sucursales</p>
         </div>
       </div>
     </div>
