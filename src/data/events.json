@@ -1,35 +1,86 @@
 [
   {
-    "id": "congreso-veterinario-2024",
-    "title": "Congreso Nacional Veterinario 2024",
-    "description": "Participación de Vetfarm en el Congreso Nacional Veterinario con stand de exhibición y conferencias sobre dermatología veterinaria.",
-    "date": "2024-11-15",
+    "id": "lanzamiento-vetnova-2026",
+    "title": "Lanzamiento VETNOVA 2026",
+    "description": "Evento oficial de lanzamiento de la línea VETNOVA 2026 en Ecuador. Presentación de novedades farmacéuticas, conferencia técnica y networking con veterinarios y distribuidores.",
+    "date": "2026-03-06",
     "images": [
-      { "src": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80&auto=format", "alt": "Stand de Vetfarm en Congreso Nacional Veterinario 2024", "title": "Stand Vetfarm" },
-      { "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&auto=format", "alt": "Conferencia de dermatología veterinaria", "title": "Conferencia dermatología" },
-      { "src": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80&auto=format", "alt": "Equipo Vetfarm en congreso", "title": "Equipo Vetfarm" }
+      { "src": "/images/events/vetnova-2026/vetnova-01.jpg", "alt": "Lanzamiento VETNOVA 2026 en Ecuador", "title": "Lanzamiento VETNOVA 2026" },
+      { "src": "/images/events/vetnova-2026/vetnova-02.jpg", "alt": "Asistentes al evento de VETNOVA" },
+      { "src": "/images/events/vetnova-2026/vetnova-03.jpg", "alt": "Presentación de producto VETNOVA" },
+      { "src": "/images/events/vetnova-2026/vetnova-04.jpg", "alt": "Networking con veterinarios" },
+      { "src": "/images/events/vetnova-2026/vetnova-05.jpg", "alt": "Conferencia técnica VETNOVA" },
+      { "src": "/images/events/vetnova-2026/vetnova-06.jpg", "alt": "Equipo Vetfarm presente en el lanzamiento" },
+      { "src": "/images/events/vetnova-2026/vetnova-07.jpg", "alt": "Muestras de producto VETNOVA" },
+      { "src": "/images/events/vetnova-2026/vetnova-08.jpg", "alt": "Brindis del lanzamiento" },
+      { "src": "/images/events/vetnova-2026/vetnova-09.jpg", "alt": "Conferencistas invitados" },
+      { "src": "/images/events/vetnova-2026/vetnova-10.jpg", "alt": "Asistentes atentos a la presentación" },
+      { "src": "/images/events/vetnova-2026/vetnova-11.jpg", "alt": "Stand VETNOVA" },
+      { "src": "/images/events/vetnova-2026/vetnova-12.jpg", "alt": "Momento del lanzamiento" },
+      { "src": "/images/events/vetnova-2026/vetnova-13.jpg", "alt": "Público del evento" },
+      { "src": "/images/events/vetnova-2026/vetnova-14.jpg", "alt": "Conversaciones técnicas" },
+      { "src": "/images/events/vetnova-2026/vetnova-15.jpg", "alt": "Detalle del evento VETNOVA" },
+      { "src": "/images/events/vetnova-2026/vetnova-16.jpg", "alt": "Presentación de nuevos productos" },
+      { "src": "/images/events/vetnova-2026/vetnova-17.jpg", "alt": "Equipo VETNOVA y Vetfarm" },
+      { "src": "/images/events/vetnova-2026/vetnova-18.jpg", "alt": "Reconocimientos" },
+      { "src": "/images/events/vetnova-2026/vetnova-19.jpg", "alt": "Ambiente del evento" },
+      { "src": "/images/events/vetnova-2026/vetnova-20.jpg", "alt": "Asistentes del sector veterinario" },
+      { "src": "/images/events/vetnova-2026/vetnova-21.jpg", "alt": "Cierre del lanzamiento" },
+      { "src": "/images/events/vetnova-2026/vetnova-22.jpg", "alt": "Foto grupal del evento" },
+      { "src": "/images/events/vetnova-2026/vetnova-23.jpg", "alt": "Networking post-evento" },
+      { "src": "/images/events/vetnova-2026/vetnova-24.jpg", "alt": "Despedida del lanzamiento VETNOVA" }
     ]
   },
   {
-    "id": "expo-pecuaria-2024",
-    "title": "Expo Pecuaria Internacional 2024",
-    "description": "Vetfarm presente en la Expo Pecuaria Internacional, presentando la línea completa de productos avícolas y soluciones para producción animal.",
-    "date": "2024-09-20",
+    "id": "congreso-felino-amvepe-2025",
+    "title": "Congreso Felino AMVEPE 2025",
+    "description": "Participación de Vetfarm en el Congreso Felino organizado por AMVEPE, con enfoque en medicina interna, nutrición y manejo clínico de pacientes felinos.",
+    "date": "2025-11-05",
     "images": [
-      { "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format", "alt": "Stand Vetfarm en Expo Pecuaria", "title": "Expo Pecuaria" },
-      { "src": "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&q=80&auto=format", "alt": "Presentación de productos avícolas", "title": "Productos avícolas" },
-      { "src": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80&auto=format", "alt": "Visitantes en stand Vetfarm", "title": "Visitantes" }
+      { "src": "/images/events/amvepe-felino-2025/felino-01.jpg", "alt": "Congreso Felino AMVEPE 2025", "title": "Congreso Felino AMVEPE" },
+      { "src": "/images/events/amvepe-felino-2025/felino-02.jpg", "alt": "Conferencias de medicina felina" },
+      { "src": "/images/events/amvepe-felino-2025/felino-03.jpg", "alt": "Stand Vetfarm en congreso felino" },
+      { "src": "/images/events/amvepe-felino-2025/felino-04.jpg", "alt": "Veterinarios asistentes al congreso" },
+      { "src": "/images/events/amvepe-felino-2025/felino-05.jpg", "alt": "Networking AMVEPE felino" },
+      { "src": "/images/events/amvepe-felino-2025/felino-06.jpg", "alt": "Cierre del congreso felino" }
     ]
   },
   {
-    "id": "capacitacion-distribuidores-2024",
-    "title": "Capacitación de Distribuidores 2024",
-    "description": "Jornada de capacitación para nuestra red de distribuidores sobre las nuevas líneas de productos y protocolos de tratamiento.",
-    "date": "2024-07-10",
+    "id": "congreso-amvepe-2025",
+    "title": "Congreso AMVEPE 2025",
+    "description": "Vetfarm presente en el congreso anual de AMVEPE con stand de exhibición, conferencias técnicas y espacios de capacitación para profesionales veterinarios.",
+    "date": "2025-10-15",
     "images": [
-      { "src": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80&auto=format", "alt": "Sesión de capacitación", "title": "Capacitación" },
-      { "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format", "alt": "Distribuidores en práctica", "title": "Práctica" },
-      { "src": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format", "alt": "Entrega de certificados", "title": "Certificados" }
+      { "src": "/images/events/amvepe-2025/amvepe-01.jpg", "alt": "Congreso AMVEPE 2025", "title": "Congreso AMVEPE" },
+      { "src": "/images/events/amvepe-2025/amvepe-02.jpg", "alt": "Stand Vetfarm en AMVEPE" },
+      { "src": "/images/events/amvepe-2025/amvepe-03.jpg", "alt": "Conferencia técnica AMVEPE" },
+      { "src": "/images/events/amvepe-2025/amvepe-04.jpg", "alt": "Veterinarios en el stand" },
+      { "src": "/images/events/amvepe-2025/amvepe-05.jpg", "alt": "Capacitación AMVEPE" },
+      { "src": "/images/events/amvepe-2025/amvepe-06.jpg", "alt": "Asistentes al congreso" },
+      { "src": "/images/events/amvepe-2025/amvepe-07.jpg", "alt": "Presentación de productos Vetfarm" },
+      { "src": "/images/events/amvepe-2025/amvepe-08.jpg", "alt": "Momento del congreso" },
+      { "src": "/images/events/amvepe-2025/amvepe-09.jpg", "alt": "Equipo Vetfarm en AMVEPE" },
+      { "src": "/images/events/amvepe-2025/amvepe-10.jpg", "alt": "Networking AMVEPE 2025" },
+      { "src": "/images/events/amvepe-2025/amvepe-11.jpg", "alt": "Detalle del stand Vetfarm" }
+    ]
+  },
+  {
+    "id": "congreso-veterinario-leon-gye-2025",
+    "title": "Congreso Veterinario de León GYE 2025",
+    "description": "Participación en el Congreso Veterinario de León en Guayaquil, con exhibición de productos y conferencias técnicas para el sector veterinario de la costa ecuatoriana.",
+    "date": "2025-06-26",
+    "images": [
+      { "src": "/images/events/leon-gye-2025/leon-01.jpg", "alt": "Congreso Veterinario de León GYE 2025", "title": "Congreso León GYE" },
+      { "src": "/images/events/leon-gye-2025/leon-02.jpg", "alt": "Stand Vetfarm en Guayaquil" },
+      { "src": "/images/events/leon-gye-2025/leon-03.jpg", "alt": "Conferencia técnica en León GYE" },
+      { "src": "/images/events/leon-gye-2025/leon-04.jpg", "alt": "Veterinarios de la costa ecuatoriana" },
+      { "src": "/images/events/leon-gye-2025/leon-05.jpg", "alt": "Presentación de productos" },
+      { "src": "/images/events/leon-gye-2025/leon-06.jpg", "alt": "Capacitación León GYE" },
+      { "src": "/images/events/leon-gye-2025/leon-07.jpg", "alt": "Asistentes al congreso de Guayaquil" },
+      { "src": "/images/events/leon-gye-2025/leon-08.jpg", "alt": "Equipo Vetfarm en León GYE" },
+      { "src": "/images/events/leon-gye-2025/leon-09.jpg", "alt": "Networking en el congreso" },
+      { "src": "/images/events/leon-gye-2025/leon-10.jpg", "alt": "Detalle del evento" },
+      { "src": "/images/events/leon-gye-2025/leon-11.jpg", "alt": "Cierre del congreso León GYE" }
     ]
   }
 ]

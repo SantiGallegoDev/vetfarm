@@ -4,15 +4,15 @@ import Hero from '../components/ui/Hero.astro';
 import Section from '../components/ui/Section.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
 import Grid from '../components/ui/Grid.astro';
-import TestimonialCard from '../components/ui/TestimonialCard.astro';
+import VideoCard from '../components/ui/VideoCard.astro';
 import BranchCard from '../components/ui/BranchCard.astro';
 import Button from '../components/ui/Button.astro';
 
-import testimonials from '../data/testimonials.json';
+import videos from '../data/videos.json';
 import branches from '../data/branches.json';
 import events from '../data/events.json';
 
-const previewTestimonials = testimonials.slice(0, 3);
+const previewVideos = videos.slice(0, 3);
 const previewBranches = branches.slice(0, 3);
 
 const features = [
@@ -201,31 +201,31 @@ const features = [
     }
   </style>
 
-  <!-- Testimonials Preview -->
+  <!-- Video Guide Preview -->
   <section class="section-padding bg-gradient-to-b from-neutral-50 via-primary-50/30 to-neutral-50 relative overflow-hidden">
     <div class="absolute top-20 left-10 opacity-[0.03]">
-      <svg class="w-40 h-40" viewBox="0 0 24 24" fill="currentColor" class="text-primary-900">
-        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+      <svg class="w-40 h-40" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
       </svg>
     </div>
     <div class="container-custom relative z-10">
       <SectionHeading
-        title="Productos que funcionan"
-        subtitle="Veterinarios comparten su experiencia con los productos Vetfarm."
+        title="Guía Veterinaria en Video"
+        subtitle="Contenido técnico de nuestros proveedores para potenciar tu práctica veterinaria."
+        label="Recursos educativos"
       />
       <Grid cols={3}>
-        {previewTestimonials.map((t) => (
-          <TestimonialCard
-            beforeImage={t.beforeImage}
-            afterImage={t.afterImage}
-            text={t.text}
-            productUsed={t.productUsed}
-            author={t.author}
+        {previewVideos.map((v) => (
+          <VideoCard
+            youtubeId={v.youtubeId}
+            title={v.title}
+            description={v.description}
+            provider={v.provider}
           />
         ))}
       </Grid>
       <div class="text-center mt-10" data-animate>
-        <Button href="/testimonios" variant="outline">Ver más testimonios</Button>
+        <Button href="/videoteca" variant="outline">Ver toda la videoteca</Button>
       </div>
     </div>
   </section>
@@ -273,7 +273,7 @@ const features = [
   <Section background="gray">
     <SectionHeading
       title="Tres puntos de atención en Quito"
-      subtitle="Puembo (Matriz), El Recreo y Av. El Inca. También atendemos por WhatsApp."
+      subtitle="Oficina Matriz (Interoceánica), Plaza Lisboa (El Inca) y CC El Recreo (Sur). También atendemos por WhatsApp."
     />
     <Grid cols={3}>
       {previewBranches.map((branch) => (

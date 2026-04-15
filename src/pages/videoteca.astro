@@ -1,0 +1,157 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/ui/Hero.astro';
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import VideoCard from '../components/ui/VideoCard.astro';
+
+import videos from '../data/videos.json';
+
+const providers = ['Todos', ...Array.from(new Set(videos.map((v) => v.provider)))];
+---
+
+<MainLayout
+  title="Guía Veterinaria en Video"
+  description="Videoteca con contenido técnico de proveedores veterinarios. Aprende de la mano de las marcas líderes."
+>
+  <Hero
+    title="Guía Veterinaria en Video"
+    subtitle="Contenido técnico seleccionado de nuestros proveedores. Aprende, actualízate y filtra por marca."
+    backgroundImage="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1920&q=80&auto=format"
+    size="small"
+  />
+
+  <Section background="white">
+    <SectionHeading
+      title="Videoteca Veterinaria"
+      subtitle="Filtra los videos por proveedor para encontrar el contenido que necesitas."
+      label="Recursos educativos"
+    />
+
+    <!-- Filter bar -->
+    <div
+      id="video-filters"
+      class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12"
+      role="tablist"
+      aria-label="Filtrar videos por proveedor"
+    >
+      {providers.map((p, i) => (
+        <button
+          type="button"
+          class:list={[
+            'filter-btn px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm font-semibold border transition-all duration-200',
+            i === 0
+              ? 'bg-primary-600 text-white border-primary-600 shadow-sm'
+              : 'bg-white text-neutral-600 border-neutral-200 hover:border-primary-300 hover:text-primary-600',
+          ]}
+          data-filter={p}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+        >
+          {p}
+        </button>
+      ))}
+    </div>
+
+    <!-- Videos grid -->
+    <div
+      id="video-grid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+    >
+      {videos.map((v) => (
+        <VideoCard
+          youtubeId={v.youtubeId}
+          title={v.title}
+          description={v.description}
+          provider={v.provider}
+        />
+      ))}
+    </div>
+
+    <p
+      id="video-empty"
+      class="hidden text-center text-neutral-500 mt-12"
+    >
+      No hay videos disponibles para este proveedor todavía.
+    </p>
+  </Section>
+
+  <!-- CTA -->
+  <Section background="primary">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-white mb-4">¿Buscas contenido técnico específico?</h2>
+      <p class="text-white/85 text-lg mb-8">
+        Nuestro equipo puede orientarte sobre productos, dosificación y casos clínicos. Escríbenos y te guiamos.
+      </p>
+      <a
+        href="https://wa.me/593999820100?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos%20que%20distribuyen."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg text-lg transition-all duration-300 hover:shadow-lg"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Contactar asesor
+      </a>
+    </div>
+  </Section>
+</MainLayout>
+
+<style>
+  .video-card {
+    animation: video-fade-in 0.4s ease both;
+  }
+  .video-card.is-hidden {
+    display: none;
+  }
+  @keyframes video-fade-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  const grid = document.getElementById('video-grid');
+  const emptyState = document.getElementById('video-empty');
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#video-filters .filter-btn');
+
+  const activeClasses = ['bg-primary-600', 'text-white', 'border-primary-600', 'shadow-sm'];
+  const inactiveClasses = ['bg-white', 'text-neutral-600', 'border-neutral-200', 'hover:border-primary-300', 'hover:text-primary-600'];
+
+  function setActive(btn: HTMLButtonElement) {
+    buttons.forEach((b) => {
+      b.classList.remove(...activeClasses);
+      b.classList.add(...inactiveClasses);
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.remove(...inactiveClasses);
+    btn.classList.add(...activeClasses);
+    btn.setAttribute('aria-pressed', 'true');
+  }
+
+  function filterVideos(provider: string) {
+    if (!grid) return;
+    const cards = grid.querySelectorAll<HTMLElement>('.video-card');
+    let visible = 0;
+    cards.forEach((card) => {
+      const match = provider === 'Todos' || card.dataset.provider === provider;
+      card.classList.toggle('is-hidden', !match);
+      if (match) {
+        visible += 1;
+        card.style.animation = 'none';
+        // Trigger reflow so animation replays
+        void card.offsetWidth;
+        card.style.animation = '';
+      }
+    });
+    emptyState?.classList.toggle('hidden', visible > 0);
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter || 'Todos';
+      setActive(btn);
+      filterVideos(filter);
+    });
+  });
+</script>

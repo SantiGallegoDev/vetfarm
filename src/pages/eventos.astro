@@ -2,32 +2,47 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/ui/Hero.astro';
 import Section from '../components/ui/Section.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
 import EventGallery from '../components/ui/EventGallery.astro';
 
 import events from '../data/events.json';
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('es-EC', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<MainLayout title="Eventos y Congresos Veterinarios" description="Congresos, ferias y capacitaciones técnicas. Vetfarm presente en el sector veterinario ecuatoriano.">
-
+<MainLayout
+  title="Eventos y Congresos Veterinarios"
+  description="Congresos, ferias y lanzamientos donde Vetfarm ha estado presente con el sector veterinario ecuatoriano."
+>
   <Hero
     title="En el campo con el sector veterinario"
-    subtitle="Congresos, ferias y capacitaciones técnicas."
-    backgroundImage="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80&auto=format"
+    subtitle="Congresos, ferias, lanzamientos y capacitaciones. Momentos compartidos con los profesionales del sector."
+    backgroundImage="/images/events/vetnova-2026/vetnova-01.jpg"
     size="small"
   />
 
   {events.map((event, index) => (
-    <Section background={index % 2 === 0 ? 'white' : 'gray'}>
-      <SectionHeading
-        title={event.title}
-        subtitle={event.description}
-      />
-      <p class="text-center text-sm text-primary-500 font-medium -mt-10 mb-10">
-        {new Date(event.date).toLocaleDateString('es-EC', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </p>
-      <EventGallery images={event.images} />
+    <Section background={index % 2 === 0 ? 'white' : 'gray'} id={event.id}>
+      <div class="mb-10 md:mb-14 text-center" data-animate>
+        <span class="inline-flex items-center gap-2 text-xs md:text-sm font-semibold text-primary-700 bg-primary-50 px-3 py-1.5 rounded-full mb-4">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          {formatDate(event.date)}
+        </span>
+        <h2 class="text-primary-800 mb-4 text-balance">{event.title}</h2>
+        <div class="flex items-center justify-center gap-2 mb-5">
+          <span class="w-8 h-1 rounded-full bg-primary-200"></span>
+          <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
+          <span class="w-8 h-1 rounded-full bg-primary-200"></span>
+        </div>
+        <p class="text-lg text-neutral-500 leading-relaxed max-w-3xl mx-auto">{event.description}</p>
+        <p class="mt-4 text-sm text-neutral-400">
+          {event.images.length} {event.images.length === 1 ? 'foto' : 'fotos'} · haz clic en una imagen para ampliar
+        </p>
+      </div>
+
+      <EventGallery images={event.images} id={event.id} />
     </Section>
   ))}
-
 </MainLayout>
