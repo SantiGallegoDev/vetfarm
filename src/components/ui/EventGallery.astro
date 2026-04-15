@@ -49,9 +49,9 @@ const animationName = direction === 'right' ? 'carousel-scroll-right' : 'carouse
               <img
                 src={img.src}
                 alt={img.alt}
-                loading={i < 3 ? 'eager' : 'lazy'}
+                loading="lazy"
                 decoding="async"
-                fetchpriority={i === 0 ? 'high' : 'auto'}
+                fetchpriority={i === 0 ? 'high' : 'low'}
               />
               <div class="slide-overlay">
                 <div class="slide-badge">
@@ -121,24 +121,31 @@ const animationName = direction === 'right' ? 'carousel-scroll-right' : 'carouse
 <style>
   .event-carousel {
     position: relative;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 420px;
   }
   .carousel-viewport {
     overflow: hidden;
     container-type: inline-size;
     position: relative;
     border-radius: 1.25rem;
+    contain: layout paint style;
   }
   .carousel-track {
     display: flex;
     width: max-content;
-    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
   @media (min-width: 640px) {
     .carousel-track {
       animation: var(--anim, carousel-scroll-left) var(--duration, 60s) linear infinite;
+      animation-play-state: paused;
     }
-    .event-carousel:hover .carousel-track,
-    .event-carousel:focus-within .carousel-track {
+    .event-carousel.is-in-view .carousel-track {
+      animation-play-state: running;
+    }
+    .event-carousel.is-in-view:hover .carousel-track,
+    .event-carousel.is-in-view:focus-within .carousel-track {
       animation-play-state: paused;
     }
   }
@@ -302,6 +309,21 @@ const animationName = direction === 'right' ? 'carousel-scroll-right' : 'carouse
   (() => {
     const root = document.querySelector(`[data-gallery-id="${id}"]`);
     if (!root) return;
+
+    // Only run the scroll animation while the carousel is on screen.
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            root.classList.toggle('is-in-view', entry.isIntersecting);
+          });
+        },
+        { rootMargin: '200px 0px', threshold: 0 }
+      );
+      io.observe(root);
+    } else {
+      root.classList.add('is-in-view');
+    }
     const lightbox = root.querySelector('[data-lightbox]');
     const lightboxImg = root.querySelector('.lightbox-img');
     const lightboxCaption = root.querySelector('.lightbox-caption');
