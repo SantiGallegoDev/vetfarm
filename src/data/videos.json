@@ -1,44 +1,72 @@
 [
   {
-    "id": "rc-01",
-    "title": "Nutrición clínica en gatos adultos",
-    "description": "Claves para recomendar una dieta balanceada en felinos con requerimientos especiales.",
-    "provider": "Royal Canin",
+    "id": "biostar-01",
+    "title": "Protocolos reproductivos en bovinos",
+    "description": "Manejo técnico de hormonas Biostar para sincronización y mejora de la tasa de preñez.",
+    "provider": "Biostar",
     "youtubeId": "dQw4w9WgXcQ"
   },
   {
-    "id": "rc-02",
-    "title": "Manejo nutricional en cachorros de raza grande",
-    "description": "Recomendaciones veterinarias para un desarrollo óseo y muscular adecuado.",
-    "provider": "Royal Canin",
+    "id": "biostar-02",
+    "title": "Suplementación mineral en producción ganadera",
+    "description": "Cómo impactar la productividad del hato con la línea nutricional de Biostar.",
+    "provider": "Biostar",
     "youtubeId": "aqz-KE-bpKQ"
   },
   {
-    "id": "hl-01",
-    "title": "Dietas terapéuticas para enfermedad renal",
-    "description": "Protocolo nutricional para pacientes caninos con insuficiencia renal crónica.",
-    "provider": "Hills",
+    "id": "brouwer-01",
+    "title": "Antiparasitarios de amplio espectro",
+    "description": "Uso clínico de los antiparasitarios Brouwer en pequeñas y grandes especies.",
+    "provider": "Brouwer",
     "youtubeId": "5qap5aO4i9A"
   },
   {
-    "id": "hl-02",
-    "title": "Control de peso en mascotas senior",
-    "description": "Estrategias nutricionales para mantener condición corporal óptima en animales mayores.",
-    "provider": "Hills",
+    "id": "brouwer-02",
+    "title": "Dermatología: abordaje con Brouwer",
+    "description": "Casos prácticos y protocolos dermatológicos con la línea Brouwer.",
+    "provider": "Brouwer",
     "youtubeId": "jNQXAC9IVRw"
   },
   {
-    "id": "pu-01",
-    "title": "Microbiota intestinal y probióticos",
-    "description": "Impacto de los probióticos en la salud digestiva de perros y gatos.",
-    "provider": "Purina",
+    "id": "osspret-01",
+    "title": "Regeneración ósea en cirugía ortopédica",
+    "description": "Aplicación clínica de los productos Osspret en traumatología veterinaria.",
+    "provider": "Osspret",
     "youtubeId": "M7lc1UVf-VE"
   },
   {
-    "id": "pu-02",
-    "title": "Alimentación en pacientes post-quirúrgicos",
-    "description": "Cómo acelerar la recuperación con un soporte nutricional adecuado.",
-    "provider": "Purina",
+    "id": "osspret-02",
+    "title": "Recuperación post-quirúrgica acelerada",
+    "description": "Resultados clínicos con el soporte articular y óseo de Osspret.",
+    "provider": "Osspret",
     "youtubeId": "tgbNymZ7vqY"
+  },
+  {
+    "id": "vetnova-01",
+    "title": "Novedades en terapia dermatológica",
+    "description": "Presentación oficial de la nueva línea dermatológica VetNova 2026.",
+    "provider": "VetNova",
+    "youtubeId": "hFZFjoX2cGg"
+  },
+  {
+    "id": "vetnova-02",
+    "title": "Otología clínica avanzada",
+    "description": "Protocolos de manejo otológico con los productos VetNova en caninos y felinos.",
+    "provider": "VetNova",
+    "youtubeId": "kXYiU_JCYtU"
+  },
+  {
+    "id": "vetgamma-01",
+    "title": "Antibioticoterapia responsable",
+    "description": "Buenas prácticas en antibioticoterapia con la línea inyectable Vet Gamma.",
+    "provider": "Vet Gamma",
+    "youtubeId": "9bZkp7q19f0"
+  },
+  {
+    "id": "vetgamma-02",
+    "title": "Control del dolor en pacientes felinos",
+    "description": "Manejo analgésico multimodal con los productos Vet Gamma.",
+    "provider": "Vet Gamma",
+    "youtubeId": "OPf0YbXqDm0"
   }
 ]

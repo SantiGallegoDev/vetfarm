@@ -7,25 +7,30 @@ import VideoCard from '../components/ui/VideoCard.astro';
 
 import videos from '../data/videos.json';
 
-const providers = ['Todos', ...Array.from(new Set(videos.map((v) => v.provider)))];
+const brandOrder = ['Biostar', 'Brouwer', 'Osspret', 'VetNova', 'Vet Gamma'];
+const availableBrands = brandOrder.filter((b) => videos.some((v) => v.provider === b));
+const filters = ['Todos', ...availableBrands];
+
+const countFor = (brand: string) =>
+  brand === 'Todos' ? videos.length : videos.filter((v) => v.provider === brand).length;
 ---
 
 <MainLayout
-  title="Guía Veterinaria en Video"
-  description="Videoteca con contenido técnico de proveedores veterinarios. Aprende de la mano de las marcas líderes."
+  title="Videos técnicos de nuestras marcas"
+  description="Contenido oficial de las marcas que distribuimos. Casos clínicos, protocolos y novedades de Biostar, Brouwer, Osspret, VetNova y Vet Gamma."
 >
   <Hero
-    title="Guía Veterinaria en Video"
-    subtitle="Contenido técnico seleccionado de nuestros proveedores. Aprende, actualízate y filtra por marca."
+    title="El conocimiento de las marcas líderes, a un clic"
+    subtitle="Videos técnicos oficiales de los laboratorios que distribuimos. Aprende con los expertos y filtra por proveedor."
     backgroundImage="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1920&q=80&auto=format"
     size="small"
   />
 
   <Section background="white">
     <SectionHeading
-      title="Videoteca Veterinaria"
-      subtitle="Filtra los videos por proveedor para encontrar el contenido que necesitas."
-      label="Recursos educativos"
+      title="Contenido técnico de quienes fabrican tus productos"
+      subtitle="Cada laboratorio comparte casos clínicos, protocolos y nuevos lanzamientos. Elige la marca y empieza a ver."
+      label="Videos"
     />
 
     <!-- Filter bar -->
@@ -35,19 +40,28 @@ const providers = ['Todos', ...Array.from(new Set(videos.map((v) => v.provider))
       role="tablist"
       aria-label="Filtrar videos por proveedor"
     >
-      {providers.map((p, i) => (
+      {filters.map((brand, i) => (
         <button
           type="button"
           class:list={[
-            'filter-btn px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm font-semibold border transition-all duration-200',
+            'filter-btn inline-flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm font-semibold border transition-all duration-200',
             i === 0
-              ? 'bg-primary-600 text-white border-primary-600 shadow-sm'
+              ? 'is-active bg-primary-600 text-white border-primary-600 shadow-sm'
               : 'bg-white text-neutral-600 border-neutral-200 hover:border-primary-300 hover:text-primary-600',
           ]}
-          data-filter={p}
+          data-filter={brand}
           aria-pressed={i === 0 ? 'true' : 'false'}
+          role="tab"
         >
-          {p}
+          <span>{brand}</span>
+          <span
+            class:list={[
+              'filter-count text-[11px] font-bold px-1.5 py-0.5 rounded-full min-w-[20px] text-center transition-colors',
+              i === 0 ? 'bg-white/20 text-white' : 'bg-neutral-100 text-neutral-500',
+            ]}
+          >
+            {countFor(brand)}
+          </span>
         </button>
       ))}
     </div>
@@ -56,6 +70,7 @@ const providers = ['Todos', ...Array.from(new Set(videos.map((v) => v.provider))
     <div
       id="video-grid"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+      role="tabpanel"
     >
       {videos.map((v) => (
         <VideoCard
@@ -71,19 +86,19 @@ const providers = ['Todos', ...Array.from(new Set(videos.map((v) => v.provider))
       id="video-empty"
       class="hidden text-center text-neutral-500 mt-12"
     >
-      No hay videos disponibles para este proveedor todavía.
+      Pronto publicaremos videos de este proveedor.
     </p>
   </Section>
 
   <!-- CTA -->
   <Section background="primary">
     <div class="text-center max-w-2xl mx-auto">
-      <h2 class="text-white mb-4">¿Buscas contenido técnico específico?</h2>
+      <h2 class="text-white mb-4">¿Necesitas un producto o asesoría técnica?</h2>
       <p class="text-white/85 text-lg mb-8">
-        Nuestro equipo puede orientarte sobre productos, dosificación y casos clínicos. Escríbenos y te guiamos.
+        Nuestro equipo conoce a fondo cada marca que distribuimos. Escríbenos y te guiamos con el producto adecuado para cada caso.
       </p>
       <a
-        href="https://wa.me/593999820100?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos%20que%20distribuyen."
+        href="https://wa.me/593999820100?text=Hola%2C%20vi%20los%20videos%20y%20quiero%20asesor%C3%ADa%20sobre%20un%20producto."
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3.5 rounded-lg text-lg transition-all duration-300 hover:shadow-lg"
@@ -99,51 +114,72 @@ const providers = ['Todos', ...Array.from(new Set(videos.map((v) => v.provider))
 
 <style>
   .video-card {
-    animation: video-fade-in 0.4s ease both;
+    animation: video-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   .video-card.is-hidden {
-    display: none;
+    display: none !important;
   }
   @keyframes video-fade-in {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(14px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 </style>
 
 <script>
   const grid = document.getElementById('video-grid');
   const emptyState = document.getElementById('video-empty');
-  const buttons = document.querySelectorAll<HTMLButtonElement>('#video-filters .filter-btn');
+  const filterBar = document.getElementById('video-filters');
+  const buttons = filterBar
+    ? Array.from(filterBar.querySelectorAll<HTMLButtonElement>('.filter-btn'))
+    : [];
 
-  const activeClasses = ['bg-primary-600', 'text-white', 'border-primary-600', 'shadow-sm'];
-  const inactiveClasses = ['bg-white', 'text-neutral-600', 'border-neutral-200', 'hover:border-primary-300', 'hover:text-primary-600'];
+  const activeBtnClasses = ['bg-primary-600', 'text-white', 'border-primary-600', 'shadow-sm'];
+  const inactiveBtnClasses = ['bg-white', 'text-neutral-600', 'border-neutral-200', 'hover:border-primary-300', 'hover:text-primary-600'];
+  const activeCountClasses = ['bg-white/20', 'text-white'];
+  const inactiveCountClasses = ['bg-neutral-100', 'text-neutral-500'];
+
+  function normalize(value: string | null | undefined) {
+    return (value ?? '').trim().toLowerCase();
+  }
 
   function setActive(btn: HTMLButtonElement) {
     buttons.forEach((b) => {
-      b.classList.remove(...activeClasses);
-      b.classList.add(...inactiveClasses);
-      b.setAttribute('aria-pressed', 'false');
+      const countEl = b.querySelector('.filter-count');
+      const isActive = b === btn;
+      b.classList.toggle('is-active', isActive);
+      if (isActive) {
+        b.classList.remove(...inactiveBtnClasses);
+        b.classList.add(...activeBtnClasses);
+        countEl?.classList.remove(...inactiveCountClasses);
+        countEl?.classList.add(...activeCountClasses);
+      } else {
+        b.classList.remove(...activeBtnClasses);
+        b.classList.add(...inactiveBtnClasses);
+        countEl?.classList.remove(...activeCountClasses);
+        countEl?.classList.add(...inactiveCountClasses);
+      }
+      b.setAttribute('aria-pressed', String(isActive));
     });
-    btn.classList.remove(...inactiveClasses);
-    btn.classList.add(...activeClasses);
-    btn.setAttribute('aria-pressed', 'true');
   }
 
-  function filterVideos(provider: string) {
+  function filterVideos(filter: string) {
     if (!grid) return;
     const cards = grid.querySelectorAll<HTMLElement>('.video-card');
+    const target = normalize(filter);
+    const showAll = target === 'todos';
     let visible = 0;
+
     cards.forEach((card) => {
-      const match = provider === 'Todos' || card.dataset.provider === provider;
+      const match = showAll || normalize(card.dataset.provider) === target;
       card.classList.toggle('is-hidden', !match);
       if (match) {
         visible += 1;
         card.style.animation = 'none';
-        // Trigger reflow so animation replays
         void card.offsetWidth;
         card.style.animation = '';
       }
     });
+
     emptyState?.classList.toggle('hidden', visible > 0);
   }
 
@@ -154,4 +190,10 @@ const providers = ['Todos', ...Array.from(new Set(videos.map((v) => v.provider))
       filterVideos(filter);
     });
   });
+
+  const initial = buttons.find((b) => b.classList.contains('is-active')) ?? buttons[0];
+  if (initial) {
+    setActive(initial);
+    filterVideos(initial.dataset.filter || 'Todos');
+  }
 </script>
