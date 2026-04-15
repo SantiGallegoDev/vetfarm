@@ -61,7 +61,12 @@ const formatDate = (iso: string) =>
             </div>
           </header>
 
-          <EventGallery images={event.images} id={event.id} bg="white" />
+          <EventGallery
+            images={event.images}
+            id={event.id}
+            bg="white"
+            direction={index % 2 === 0 ? 'left' : 'right'}
+          />
         </article>
       ))}
     </div>

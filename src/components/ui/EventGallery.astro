@@ -9,23 +9,26 @@ interface Props {
   images: EventImage[];
   id?: string;
   bg?: 'white' | 'gray';
+  direction?: 'left' | 'right';
 }
 
 const {
   images,
   id = `g-${Math.random().toString(36).slice(2, 10)}`,
   bg = 'white',
+  direction = 'left',
 } = Astro.props;
 
 const doubled = [...images, ...images];
 const fadeColor = bg === 'gray' ? 'rgb(250 250 249)' : 'rgb(255 255 255)';
-const durationSeconds = Math.max(24, images.length * 3.8);
+const durationSeconds = Math.max(40, images.length * 6);
+const animationName = direction === 'right' ? 'carousel-scroll-right' : 'carousel-scroll-left';
 ---
 
 <div
   class="event-carousel"
   data-gallery-id={id}
-  style={`--fade-bg:${fadeColor};--duration:${durationSeconds}s`}
+  style={`--fade-bg:${fadeColor};--duration:${durationSeconds}s;--anim:${animationName}`}
 >
   <div class="carousel-viewport">
     <div class="carousel-track">
@@ -128,12 +131,27 @@ const durationSeconds = Math.max(24, images.length * 3.8);
   .carousel-track {
     display: flex;
     width: max-content;
-    animation: carousel-scroll var(--duration, 40s) linear infinite;
     will-change: transform;
   }
-  .event-carousel:hover .carousel-track,
-  .event-carousel:focus-within .carousel-track {
-    animation-play-state: paused;
+  @media (min-width: 640px) {
+    .carousel-track {
+      animation: var(--anim, carousel-scroll-left) var(--duration, 60s) linear infinite;
+    }
+    .event-carousel:hover .carousel-track,
+    .event-carousel:focus-within .carousel-track {
+      animation-play-state: paused;
+    }
+  }
+  @media (max-width: 639px) {
+    .carousel-viewport {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .carousel-viewport::-webkit-scrollbar { display: none; }
+    .carousel-slide { scroll-snap-align: center; }
+    .carousel-track { width: auto; }
   }
 
   .carousel-slide {
@@ -258,9 +276,13 @@ const durationSeconds = Math.max(24, images.length * 3.8);
   .fade-left  { left:  0; background: linear-gradient(to right, var(--fade-bg, white), transparent); }
   .fade-right { right: 0; background: linear-gradient(to left,  var(--fade-bg, white), transparent); }
 
-  @keyframes carousel-scroll {
+  @keyframes carousel-scroll-left {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
+  }
+  @keyframes carousel-scroll-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
   }
 
   @media (prefers-reduced-motion: reduce) {
