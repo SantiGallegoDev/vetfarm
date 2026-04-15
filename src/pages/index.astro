@@ -4,7 +4,7 @@ import Hero from '../components/ui/Hero.astro';
 import Section from '../components/ui/Section.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
 import Grid from '../components/ui/Grid.astro';
-import VideoCard from '../components/ui/VideoCard.astro';
+import VerticalVideoCard from '../components/ui/VerticalVideoCard.astro';
 import BranchCard from '../components/ui/BranchCard.astro';
 import Button from '../components/ui/Button.astro';
 
@@ -12,7 +12,7 @@ import videos from '../data/videos.json';
 import branches from '../data/branches.json';
 import events from '../data/events.json';
 
-const previewVideos = videos.slice(0, 3);
+const previewVideos = videos.slice(0, 4);
 const previewBranches = branches.slice(0, 3);
 
 const features = [
@@ -210,20 +210,20 @@ const features = [
     </div>
     <div class="container-custom relative z-10">
       <SectionHeading
-        title="Videos técnicos de las marcas líderes"
-        subtitle="Aprende directamente de los laboratorios que distribuimos: casos clínicos, protocolos y novedades."
+        title="Videos informativos"
+        subtitle="Contenido corto sobre productos y patologías frecuentes en la práctica veterinaria."
         label="Videos"
       />
-      <Grid cols={3}>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {previewVideos.map((v) => (
-          <VideoCard
-            youtubeId={v.youtubeId}
+          <VerticalVideoCard
+            id={v.id}
+            src={v.src}
             title={v.title}
             description={v.description}
-            provider={v.provider}
           />
         ))}
-      </Grid>
+      </div>
       <div class="text-center mt-10" data-animate>
         <Button href="/videos" variant="outline">Ver todos los videos</Button>
       </div>

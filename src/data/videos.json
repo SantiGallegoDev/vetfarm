@@ -1,72 +1,38 @@
 [
   {
-    "id": "biostar-01",
-    "title": "Protocolos reproductivos en bovinos",
-    "description": "Manejo técnico de hormonas Biostar para sincronización y mejora de la tasa de preñez.",
-    "provider": "Biostar",
-    "youtubeId": "dQw4w9WgXcQ"
+    "id": "dermomax",
+    "title": "Dermomax",
+    "description": "Solución tópica para el manejo de afecciones dermatológicas en caninos y felinos.",
+    "src": "/videos/dermomax.mp4"
   },
   {
-    "id": "biostar-02",
-    "title": "Suplementación mineral en producción ganadera",
-    "description": "Cómo impactar la productividad del hato con la línea nutricional de Biostar.",
-    "provider": "Biostar",
-    "youtubeId": "aqz-KE-bpKQ"
+    "id": "artrin",
+    "title": "Artrin",
+    "description": "Soporte articular para pacientes con procesos degenerativos y recuperación ortopédica.",
+    "src": "/videos/artrin.mp4"
   },
   {
-    "id": "brouwer-01",
-    "title": "Antiparasitarios de amplio espectro",
-    "description": "Uso clínico de los antiparasitarios Brouwer en pequeñas y grandes especies.",
-    "provider": "Brouwer",
-    "youtubeId": "5qap5aO4i9A"
+    "id": "acederm",
+    "title": "Acederm",
+    "description": "Cuidado dermatológico de uso clínico para pieles sensibles y lesiones cutáneas.",
+    "src": "/videos/acederm.mp4"
   },
   {
-    "id": "brouwer-02",
-    "title": "Dermatología: abordaje con Brouwer",
-    "description": "Casos prácticos y protocolos dermatológicos con la línea Brouwer.",
-    "provider": "Brouwer",
-    "youtubeId": "jNQXAC9IVRw"
+    "id": "power-gold-3",
+    "title": "Power Gold 3",
+    "description": "Complejo energético y multivitamínico para reforzar el rendimiento animal.",
+    "src": "/videos/power-gold-3.mp4"
   },
   {
-    "id": "osspret-01",
-    "title": "Regeneración ósea en cirugía ortopédica",
-    "description": "Aplicación clínica de los productos Osspret en traumatología veterinaria.",
-    "provider": "Osspret",
-    "youtubeId": "M7lc1UVf-VE"
+    "id": "la-erlichiosis",
+    "title": "Ehrlichiosis canina",
+    "description": "Información clínica sobre diagnóstico, síntomas y manejo de la ehrlichiosis.",
+    "src": "/videos/la-erlichiosis.mp4"
   },
   {
-    "id": "osspret-02",
-    "title": "Recuperación post-quirúrgica acelerada",
-    "description": "Resultados clínicos con el soporte articular y óseo de Osspret.",
-    "provider": "Osspret",
-    "youtubeId": "tgbNymZ7vqY"
-  },
-  {
-    "id": "vetnova-01",
-    "title": "Novedades en terapia dermatológica",
-    "description": "Presentación oficial de la nueva línea dermatológica VetNova 2026.",
-    "provider": "VetNova",
-    "youtubeId": "hFZFjoX2cGg"
-  },
-  {
-    "id": "vetnova-02",
-    "title": "Otología clínica avanzada",
-    "description": "Protocolos de manejo otológico con los productos VetNova en caninos y felinos.",
-    "provider": "VetNova",
-    "youtubeId": "kXYiU_JCYtU"
-  },
-  {
-    "id": "vetgamma-01",
-    "title": "Antibioticoterapia responsable",
-    "description": "Buenas prácticas en antibioticoterapia con la línea inyectable Vet Gamma.",
-    "provider": "Vet Gamma",
-    "youtubeId": "9bZkp7q19f0"
-  },
-  {
-    "id": "vetgamma-02",
-    "title": "Control del dolor en pacientes felinos",
-    "description": "Manejo analgésico multimodal con los productos Vet Gamma.",
-    "provider": "Vet Gamma",
-    "youtubeId": "OPf0YbXqDm0"
+    "id": "dexaflox",
+    "title": "Dexaflox",
+    "description": "Antiinflamatorio de acción rápida para procesos agudos y postquirúrgicos.",
+    "src": "/videos/dexaflox.mp4"
   }
 ]
