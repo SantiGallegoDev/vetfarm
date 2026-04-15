@@ -2,6 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/ui/Hero.astro';
 import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
 import EventGallery from '../components/ui/EventGallery.astro';
 
 import events from '../data/events.json';
@@ -21,28 +22,64 @@ const formatDate = (iso: string) =>
     size="small"
   />
 
-  {events.map((event, index) => (
-    <Section background={index % 2 === 0 ? 'white' : 'gray'} id={event.id}>
-      <div class="mb-10 md:mb-14 text-center" data-animate>
-        <span class="inline-flex items-center gap-2 text-xs md:text-sm font-semibold text-primary-700 bg-primary-50 px-3 py-1.5 rounded-full mb-4">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          {formatDate(event.date)}
-        </span>
-        <h2 class="text-primary-800 mb-4 text-balance">{event.title}</h2>
-        <div class="flex items-center justify-center gap-2 mb-5">
-          <span class="w-8 h-1 rounded-full bg-primary-200"></span>
-          <span class="w-3 h-3 rounded-full bg-secondary-500"></span>
-          <span class="w-8 h-1 rounded-full bg-primary-200"></span>
-        </div>
-        <p class="text-lg text-neutral-500 leading-relaxed max-w-3xl mx-auto">{event.description}</p>
-        <p class="mt-4 text-sm text-neutral-400">
-          {event.images.length} {event.images.length === 1 ? 'foto' : 'fotos'} · haz clic en una imagen para ampliar
-        </p>
-      </div>
+  <Section background="white">
+    <SectionHeading
+      title="Eventos y Congresos"
+      subtitle="Pasa el cursor sobre cualquier carrusel para detenerlo. Haz clic en una foto para ampliarla."
+      label="Galería de momentos"
+    />
 
-      <EventGallery images={event.images} id={event.id} />
-    </Section>
-  ))}
+    <div class="space-y-20 md:space-y-28">
+      {events.map((event, index) => (
+        <article
+          id={event.id}
+          class="event-block scroll-mt-28"
+          data-animate
+        >
+          <header class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-end mb-6 md:mb-8">
+            <div class="md:col-span-8">
+              <span class="inline-flex items-center gap-2 text-xs font-semibold text-primary-700 bg-primary-50 px-3 py-1.5 rounded-full mb-3">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {formatDate(event.date)}
+              </span>
+              <h3 class="font-heading font-bold text-xl md:text-2xl lg:text-3xl text-primary-800 leading-tight mb-3 text-balance">
+                {event.title}
+              </h3>
+              <p class="text-neutral-500 leading-relaxed max-w-2xl">
+                {event.description}
+              </p>
+            </div>
+            <div class="md:col-span-4 flex md:justify-end items-center gap-2 text-sm">
+              <span class="inline-flex items-center gap-1.5 text-neutral-500 bg-neutral-100 px-3 py-1.5 rounded-full">
+                <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {event.images.length} fotos
+              </span>
+            </div>
+          </header>
+
+          <EventGallery images={event.images} id={event.id} bg="white" />
+        </article>
+      ))}
+    </div>
+  </Section>
 </MainLayout>
+
+<style>
+  .event-block {
+    position: relative;
+  }
+  .event-block + .event-block::before {
+    content: '';
+    position: absolute;
+    top: calc(-1 * clamp(2.5rem, 4vw, 3.5rem));
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgb(var(--color-primary-200, 187 247 208)), transparent);
+  }
+</style>

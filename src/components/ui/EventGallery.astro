@@ -8,39 +8,64 @@ interface EventImage {
 interface Props {
   images: EventImage[];
   id?: string;
+  bg?: 'white' | 'gray';
 }
 
-const { images, id = `gallery-${Math.random().toString(36).slice(2, 10)}` } = Astro.props;
+const {
+  images,
+  id = `g-${Math.random().toString(36).slice(2, 10)}`,
+  bg = 'white',
+} = Astro.props;
+
+const doubled = [...images, ...images];
+const fadeColor = bg === 'gray' ? 'rgb(250 250 249)' : 'rgb(255 255 255)';
+const durationSeconds = Math.max(24, images.length * 3.8);
 ---
 
-<div class="event-gallery" data-gallery-id={id}>
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-    {images.map((img, index) => (
-      <button
-        class="group relative aspect-square bg-neutral-100 rounded-xl overflow-hidden cursor-pointer border-0 p-0 shadow-sm hover:shadow-lg transition-shadow duration-300"
-        data-lightbox-trigger
-        data-lightbox-index={index}
-        aria-label={`Ver imagen: ${img.alt}`}
-      >
-        <img
-          src={img.src}
-          alt={img.alt}
-          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          decoding="async"
-        />
-        <div class="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/30 transition-colors duration-300 flex items-center justify-center">
-          <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-          </svg>
-        </div>
-        {img.title && (
-          <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-            <p class="text-white text-xs md:text-sm font-medium text-left">{img.title}</p>
-          </div>
-        )}
-      </button>
-    ))}
+<div
+  class="event-carousel"
+  data-gallery-id={id}
+  style={`--fade-bg:${fadeColor};--duration:${durationSeconds}s`}
+>
+  <div class="carousel-viewport">
+    <div class="carousel-track">
+      {doubled.map((img, i) => {
+        const originalIndex = i % images.length;
+        const isClone = i >= images.length;
+        return (
+          <button
+            type="button"
+            class="carousel-slide"
+            data-lightbox-trigger
+            data-lightbox-index={originalIndex}
+            aria-label={`Ver imagen: ${img.alt}`}
+            aria-hidden={isClone ? 'true' : 'false'}
+            tabindex={isClone ? -1 : 0}
+          >
+            <div class="slide-card">
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading={i < 3 ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchpriority={i === 0 ? 'high' : 'auto'}
+              />
+              <div class="slide-overlay">
+                <div class="slide-badge">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                  <span>Ampliar</span>
+                </div>
+                {img.title && <p class="slide-title">{img.title}</p>}
+              </div>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+    <div class="fade-edge fade-left" aria-hidden="true"></div>
+    <div class="fade-edge fade-right" aria-hidden="true"></div>
   </div>
 
   <!-- Lightbox (scoped to this gallery) -->
@@ -84,10 +109,172 @@ const { images, id = `gallery-${Math.random().toString(36).slice(2, 10)}` } = As
         src=""
         alt=""
       />
-      <figcaption class="lightbox-caption text-white/80 text-sm text-center px-4"></figcaption>
+      <figcaption class="lightbox-caption text-white/80 text-sm text-center px-4 min-h-5"></figcaption>
+      <p class="lightbox-counter text-white/50 text-xs"></p>
     </figure>
   </div>
 </div>
+
+<style>
+  .event-carousel {
+    position: relative;
+  }
+  .carousel-viewport {
+    overflow: hidden;
+    container-type: inline-size;
+    position: relative;
+    border-radius: 1.25rem;
+  }
+  .carousel-track {
+    display: flex;
+    width: max-content;
+    animation: carousel-scroll var(--duration, 40s) linear infinite;
+    will-change: transform;
+  }
+  .event-carousel:hover .carousel-track,
+  .event-carousel:focus-within .carousel-track {
+    animation-play-state: paused;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100cqw;
+    padding: 0 0.5rem;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+    outline: none;
+  }
+  @container (min-width: 640px) {
+    .carousel-slide { flex-basis: 50cqw; padding: 0 0.625rem; }
+  }
+  @container (min-width: 1024px) {
+    .carousel-slide { flex-basis: 33.3333cqw; padding: 0 0.75rem; }
+  }
+
+  .slide-card {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: rgb(245 245 244);
+    box-shadow:
+      0 4px 18px -6px rgb(6 78 59 / 0.18),
+      0 0 0 1px rgb(0 0 0 / 0.04);
+    transition:
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .carousel-slide:hover .slide-card,
+  .carousel-slide:focus-visible .slide-card {
+    transform: translateY(-6px);
+    box-shadow:
+      0 28px 55px -15px rgb(6 78 59 / 0.32),
+      0 0 0 1px rgb(0 0 0 / 0.05);
+  }
+  .slide-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s;
+    filter: saturate(0.95);
+  }
+  .carousel-slide:hover .slide-card img {
+    transform: scale(1.08);
+    filter: saturate(1.1);
+  }
+
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgb(6 78 59 / 0.72) 0%,
+      rgb(6 78 59 / 0.25) 35%,
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+  }
+  .carousel-slide:hover .slide-overlay,
+  .carousel-slide:focus-visible .slide-overlay {
+    opacity: 1;
+  }
+
+  .slide-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    background: rgb(255 255 255 / 0.18);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.25);
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
+  }
+  .carousel-slide:hover .slide-badge,
+  .carousel-slide:focus-visible .slide-badge {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.08s;
+  }
+  .slide-title {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    transform: translateY(8px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
+  }
+  .carousel-slide:hover .slide-title,
+  .carousel-slide:focus-visible .slide-title {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.16s;
+  }
+
+  .fade-edge {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(1.5rem, 6%, 5rem);
+    pointer-events: none;
+    z-index: 10;
+  }
+  .fade-left  { left:  0; background: linear-gradient(to right, var(--fade-bg, white), transparent); }
+  .fade-right { right: 0; background: linear-gradient(to left,  var(--fade-bg, white), transparent); }
+
+  @keyframes carousel-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+      animation: none;
+    }
+    .carousel-viewport {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+    .carousel-slide { scroll-snap-align: start; }
+  }
+</style>
 
 <script define:vars={{ images, id }}>
   (() => {
@@ -96,7 +283,9 @@ const { images, id = `gallery-${Math.random().toString(36).slice(2, 10)}` } = As
     const lightbox = root.querySelector('[data-lightbox]');
     const lightboxImg = root.querySelector('.lightbox-img');
     const lightboxCaption = root.querySelector('.lightbox-caption');
+    const lightboxCounter = root.querySelector('.lightbox-counter');
     const triggers = root.querySelectorAll('[data-lightbox-trigger]');
+    const total = images.length;
     let currentIndex = 0;
 
     function render() {
@@ -104,6 +293,7 @@ const { images, id = `gallery-${Math.random().toString(36).slice(2, 10)}` } = As
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       lightboxCaption.textContent = img.title || img.alt || '';
+      lightboxCounter.textContent = `${currentIndex + 1} / ${total}`;
     }
 
     function open(index) {
@@ -121,13 +311,14 @@ const { images, id = `gallery-${Math.random().toString(36).slice(2, 10)}` } = As
     }
 
     function navigate(dir) {
-      currentIndex = (currentIndex + dir + images.length) % images.length;
+      currentIndex = (currentIndex + dir + total) % total;
       render();
     }
 
     triggers.forEach((trigger) => {
-      trigger.addEventListener('click', () => {
-        open(parseInt(trigger.dataset.lightboxIndex));
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        open(parseInt(trigger.dataset.lightboxIndex, 10));
       });
     });
 
@@ -147,12 +338,18 @@ const { images, id = `gallery-${Math.random().toString(36).slice(2, 10)}` } = As
     });
 
     let touchStartX = 0;
-    lightbox?.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    lightbox?.addEventListener('touchend', (e) => {
-      const diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
-    }, { passive: true });
+    lightbox?.addEventListener(
+      'touchstart',
+      (e) => { touchStartX = e.changedTouches[0].screenX; },
+      { passive: true }
+    );
+    lightbox?.addEventListener(
+      'touchend',
+      (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+      },
+      { passive: true }
+    );
   })();
 </script>
