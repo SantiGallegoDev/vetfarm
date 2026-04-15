@@ -6,24 +6,24 @@
     "phone": "+593 2 393 6525 / 6526",
     "whatsapp": "593239365256",
     "schedule": "Lunes a Viernes: 8:00 - 17:00",
-    "mapEmbed": "https://www.google.com/maps?q=Av.+Interoce%C3%A1nica+km+22,+Barrio+La+Libertad,+Quito,+Ecuador&output=embed"
+    "mapEmbed": "https://maps.google.com/maps?q=Vetfarm%2C%20E28C%2C%20Quito&t=m&z=16&output=embed&iwloc=near"
   },
   {
     "id": "inca",
     "name": "Plaza Lisboa (El Inca)",
-    "address": "Francisco de Orellana 131 y El Inca, Quito - Pichincha - Ecuador",
+    "address": "Francisco de Izazaga y Av. El Inca, Quito - Pichincha - Ecuador",
     "phone": "+593 99 982 0100",
     "whatsapp": "593999820100",
     "schedule": "Lunes a Viernes: 9:00 - 17:30",
-    "mapEmbed": "https://www.google.com/maps?q=Francisco+de+Orellana+131+y+El+Inca,+Quito,+Ecuador&output=embed"
+    "mapEmbed": "https://maps.google.com/maps?q=Francisco%20de%20Izazaga%20%26%20Av.%20El%20Inca%2C%20Quito&t=m&z=16&output=embed&iwloc=near"
   },
   {
     "id": "recreo",
     "name": "CC El Recreo (Sur)",
-    "address": "Av. Pedro Vicente Maldonado, Quito - Pichincha - Ecuador",
+    "address": "Av. Pedro Vicente Maldonado S11-122, Quito - Pichincha - Ecuador",
     "phone": "+593 99 970 3507",
     "whatsapp": "593999703507",
     "schedule": "Lunes a Domingo: 10:00 - 20:00",
-    "mapEmbed": "https://www.google.com/maps?q=CC+El+Recreo,+Av.+Pedro+Vicente+Maldonado,+Quito,+Ecuador&output=embed"
+    "mapEmbed": "https://maps.google.com/maps?q=AV.%20PEDRO%20VICENTE%20MALDONADO%20S11-122%2C%20QUITO&t=m&z=16&output=embed&iwloc=near"
   }
 ]
