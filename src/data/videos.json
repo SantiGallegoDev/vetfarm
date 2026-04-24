@@ -18,8 +18,8 @@
     "src": "/videos/acederm.mp4"
   },
   {
-    "id": "power-gold-3",
-    "title": "Power Gold 3",
+    "id": "power-gold",
+    "title": "Power Gold",
     "description": "Complejo energético y multivitamínico para reforzar el rendimiento animal.",
     "src": "/videos/power-gold-3.mp4"
   },
@@ -32,7 +32,7 @@
   {
     "id": "dexaflox",
     "title": "Dexaflox",
-    "description": "Antiinflamatorio de acción rápida para procesos agudos y postquirúrgicos.",
+    "description": "Antibiótico y antiinflamatorio de acción rápida para procesos agudos y postquirúrgicos.",
     "src": "/videos/dexaflox.mp4"
   }
 ]

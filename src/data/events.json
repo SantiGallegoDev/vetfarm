@@ -1,8 +1,28 @@
 [
   {
+    "id": "congreso-amvepe-2026",
+    "title": "Congreso AMVEPE 2026",
+    "description": "Vetfarm participó en el Congreso AMVEPE 2026 con stand propio, conferencias técnicas y espacios de capacitación para médicos veterinarios del país.",
+    "date": "2026-04-15",
+    "images": [
+      { "src": "/images/events/amvepe-2026/amvepe-01.jpg", "alt": "Congreso AMVEPE 2026", "title": "Congreso AMVEPE 2026" },
+      { "src": "/images/events/amvepe-2026/amvepe-02.jpg", "alt": "Stand Vetfarm en AMVEPE 2026" },
+      { "src": "/images/events/amvepe-2026/amvepe-03.jpg", "alt": "Equipo Vetfarm en el congreso" },
+      { "src": "/images/events/amvepe-2026/amvepe-04.jpg", "alt": "Conferencia técnica AMVEPE 2026" },
+      { "src": "/images/events/amvepe-2026/amvepe-05.jpg", "alt": "Veterinarios asistentes al stand" },
+      { "src": "/images/events/amvepe-2026/amvepe-06.jpg", "alt": "Muestras de productos Vetfarm" },
+      { "src": "/images/events/amvepe-2026/amvepe-07.jpg", "alt": "Networking con veterinarios" },
+      { "src": "/images/events/amvepe-2026/amvepe-08.jpg", "alt": "Capacitación AMVEPE 2026" },
+      { "src": "/images/events/amvepe-2026/amvepe-09.jpg", "alt": "Presentación de productos" },
+      { "src": "/images/events/amvepe-2026/amvepe-10.jpg", "alt": "Asistentes al congreso" },
+      { "src": "/images/events/amvepe-2026/amvepe-11.jpg", "alt": "Detalle del stand Vetfarm" },
+      { "src": "/images/events/amvepe-2026/amvepe-12.jpg", "alt": "Momento del congreso AMVEPE 2026" }
+    ]
+  },
+  {
     "id": "lanzamiento-vetnova-2026",
     "title": "Lanzamiento VETNOVA 2026",
-    "description": "Evento oficial de lanzamiento de la línea VETNOVA 2026 en Ecuador. Presentación de novedades farmacéuticas, conferencia técnica y networking con veterinarios y distribuidores.",
+    "description": "Evento oficial de lanzamiento de la línea VETNOVA 2026 en Ecuador. Presentación de novedades enfocadas al bienestar animal, con conferencias técnicas y networking con veterinarios y distribuidores.",
     "date": "2026-03-06",
     "images": [
       { "src": "/images/events/vetnova-2026/vetnova-01.jpg", "alt": "Lanzamiento VETNOVA 2026 en Ecuador", "title": "Lanzamiento VETNOVA 2026" },
@@ -25,12 +45,30 @@
     "description": "Participación de Vetfarm en el Congreso Felino organizado por AMVEPE, con enfoque en medicina interna, nutrición y manejo clínico de pacientes felinos.",
     "date": "2025-11-05",
     "images": [
-      { "src": "/images/events/amvepe-felino-2025/felino-01.jpg", "alt": "Congreso Felino AMVEPE 2025", "title": "Congreso Felino AMVEPE" },
-      { "src": "/images/events/amvepe-felino-2025/felino-02.jpg", "alt": "Conferencias de medicina felina" },
-      { "src": "/images/events/amvepe-felino-2025/felino-03.jpg", "alt": "Stand Vetfarm en congreso felino" },
-      { "src": "/images/events/amvepe-felino-2025/felino-04.jpg", "alt": "Veterinarios asistentes al congreso" },
-      { "src": "/images/events/amvepe-felino-2025/felino-05.jpg", "alt": "Networking AMVEPE felino" },
-      { "src": "/images/events/amvepe-felino-2025/felino-06.jpg", "alt": "Cierre del congreso felino" }
+      { "src": "/images/events/amvepe-felino-2025/felino-01.jpg", "alt": "Equipo Vetfarm en el stand del Congreso Felino AMVEPE 2025", "title": "Congreso Felino AMVEPE" },
+      { "src": "/images/events/amvepe-felino-2025/felino-03.jpg", "alt": "Stand Vetfarm con línea oftalmológica Brouwer" },
+      { "src": "/images/events/amvepe-felino-2025/felino-04.jpg", "alt": "Stand Vetfarm durante el congreso felino" },
+      { "src": "/images/events/amvepe-felino-2025/felino-06.jpg", "alt": "Networking y entrega de material Vetfarm" }
+    ]
+  },
+  {
+    "id": "capacitacion-cardiologia-2025",
+    "title": "Capacitación: Actualización en cardiología de perros y gatos",
+    "description": "Capacitación técnica organizada por Vetfarm dirigida a médicos veterinarios, con actualización en diagnóstico y manejo de patologías cardíacas en caninos y felinos.",
+    "date": "2025-11-19",
+    "images": [
+      { "src": "/images/events/cardiologia-2025/cardiologia-01.jpg", "alt": "Capacitación en cardiología de perros y gatos", "title": "Capacitación cardiología 2025" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-02.jpg", "alt": "Expositor durante la capacitación" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-03.jpg", "alt": "Veterinarios asistentes a la capacitación" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-04.jpg", "alt": "Actualización técnica en cardiología" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-05.jpg", "alt": "Conferencia de cardiología canina y felina" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-06.jpg", "alt": "Asistentes a la capacitación de Vetfarm" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-07.jpg", "alt": "Sala de capacitación" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-08.jpg", "alt": "Momento de la capacitación" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-09.jpg", "alt": "Networking con veterinarios" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-10.jpg", "alt": "Material técnico entregado" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-11.jpg", "alt": "Panel de cierre de la capacitación" },
+      { "src": "/images/events/cardiologia-2025/cardiologia-12.jpg", "alt": "Equipo Vetfarm en la capacitación" }
     ]
   },
   {
